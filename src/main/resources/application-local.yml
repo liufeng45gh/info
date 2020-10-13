@@ -6,6 +6,8 @@ spring:
     host: 39.98.216.166
     port: 6379
     password: lucifer
+  freemarker:
+    suffix: .ftl
 # DATASOURCE
 jdbc-user:
   driverClass: com.mysql.cj.jdbc.Driver
