@@ -83,7 +83,7 @@
   <p style='margin-top:25px; color:#fff; text-align:center'>
     开发团队：
     <a href='#' style="color:yellow">liufx</a>
-    <a href='#' style="color:yellow">海富文化网</a>
+    <a href='#' style="color:yellow"></a>
   </p>
   <div id="poweredby">
     <iframe id='updater' class='hidden' frameborder='0' width='100%' scrolling='no' allowtransparency='true' src="http://api.zentao.net/updater-isLatest-8.2.4-9e3dbcba3fcfa456fdc14568103d4e83.html?lang=zh_cn"></iframe>
