@@ -49,7 +49,7 @@
                     <input type="checkbox" value="true" checked="checked" id="remember_me" /><span>记住我</span>
                 </div>
                 <div class="forget-btn">
-                    <a class="" data-toggle="dropdown" href="">忘记密码?</a>
+                    <a class="" data-toggle="dropdown" href="/oauth2/email_reset">重置密码?</a>
 
                 </div>
                 <button class="sign-in-button" id="sign-in-form-submit-btn" type="button">

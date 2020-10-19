@@ -30,17 +30,24 @@ public class LoginController {
     }
 
     @RequestMapping(value = "/sign_in",method = RequestMethod.GET)
-    public String signIn(HttpServletRequest request){
+    public String signIn(){
         //String totalMemberCount = memberMapper.getSysConfigValue("total_member_count");
         //request.setAttribute("totalMemberCount",totalMemberCount);
         return   "/oauth2/sign_in";
     }
 
     @RequestMapping(value = "/sign_up",method = RequestMethod.GET)
-    public String signUp(HttpServletRequest request){
+    public String signUp(){
         //String totalMemberCount = memberMapper.getSysConfigValue("total_member_count");
         //request.setAttribute("totalMemberCount",totalMemberCount);
         return   "/oauth2/sign_up";
+    }
+
+    @RequestMapping(value = "/email_reset",method = RequestMethod.GET)
+    public String reset(){
+        //String totalMemberCount = memberMapper.getSysConfigValue("total_member_count");
+        //request.setAttribute("totalMemberCount",totalMemberCount);
+        return   "/oauth2/email_reset";
     }
 
     @RequestMapping(value = "/login",method = RequestMethod.POST)

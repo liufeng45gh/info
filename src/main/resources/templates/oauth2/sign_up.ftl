@@ -54,7 +54,7 @@
                     <i class="iconfont ic-password"></i>
                 </div>
                 <input type="submit" name="commit" value="注册" class="sign-up-button" id="sign_up_btn" data-disable-with="注册" />
-                <p class="sign-up-msg">点击 “注册” 即表示您同意并愿意遵守简书<br> <a target="_blank" href="#">用户协议</a> 和 <a target="_blank" href="#">隐私政策</a> 。</p>
+                <p class="sign-up-msg">点击 “注册” 即表示您同意并愿意遵守简书<br> <a target="_blank" href="#" onclick="return false">用户协议</a> 和 <a target="_blank" href="#" onclick="return false">隐私政策</a> 。</p>
             </form>
             <!-- 更多注册方式 -->
 
