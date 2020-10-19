@@ -174,6 +174,8 @@ public class UserLoginService {
 		if  (null == dbUser)  {
 			return Result.fail("用户未找到");
 		}
+		logger.info("dbUser.getSalt(): "+dbUser.getSalt());
+		logger.info("password: "+password);
 		String md5Password = Md5Utils.md5(Md5Utils.md5(password)+dbUser.getSalt());
 		logger.info("md5Password: "+md5Password);
 		if (!md5Password.equals(dbUser.getPassword())) {

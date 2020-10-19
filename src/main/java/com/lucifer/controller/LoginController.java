@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @Controller
-@RequestMapping(value = "/mobile")
+@RequestMapping(value = "/oauth2")
 public class LoginController {
 
     @Resource
@@ -29,11 +29,18 @@ public class LoginController {
         return  "/web/index";
     }
 
-    @RequestMapping(value = "/login",method = RequestMethod.GET)
-    public String toLogin(HttpServletRequest request){
-        String totalMemberCount = memberMapper.getSysConfigValue("total_member_count");
-        request.setAttribute("totalMemberCount",totalMemberCount);
-        return   "/web/login";
+    @RequestMapping(value = "/sign_in",method = RequestMethod.GET)
+    public String signIn(HttpServletRequest request){
+        //String totalMemberCount = memberMapper.getSysConfigValue("total_member_count");
+        //request.setAttribute("totalMemberCount",totalMemberCount);
+        return   "/oauth2/sign_in";
+    }
+
+    @RequestMapping(value = "/sign_up",method = RequestMethod.GET)
+    public String signUp(HttpServletRequest request){
+        //String totalMemberCount = memberMapper.getSysConfigValue("total_member_count");
+        //request.setAttribute("totalMemberCount",totalMemberCount);
+        return   "/oauth2/sign_up";
     }
 
     @RequestMapping(value = "/login",method = RequestMethod.POST)

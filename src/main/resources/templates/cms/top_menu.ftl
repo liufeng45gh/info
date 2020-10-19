@@ -22,7 +22,7 @@
 
         </div>
       <h5 id="companyname" style="text-align:left;">
-        商城后台管理系统
+        后台管理系统
         </h5>
     </div>
 

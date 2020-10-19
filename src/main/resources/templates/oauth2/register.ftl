@@ -4,7 +4,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <title>Oauth2.0-授权登录</title>
+    <title>Oauth2.0-注册</title>
     <link type="text/css" rel="stylesheet"  href="/web/css/login.css" source="widget"/>
     <script type="text/javascript" charset="UTF-8" src="/oauth2/script/jquery-1.9.1.min.js"></script>
     <script type="text/javascript" charset="UTF-8" src="/oauth2/script/login.js"></script>
@@ -20,7 +20,7 @@
                 <div class="login-form">
                     <div class="login-box">
                         <div class="mt">
-                            <h1>Auth2.0 授权登录</h1>
+                            <h1>Auth2.0 注册</h1>
 
                         </div>
                         <div class="msg-wrap">
@@ -39,7 +39,7 @@
                                         <input type="hidden" name="client_id" value="${client_id?default("")}">
                                         <input type="hidden" name="redirect_uri" value="${redirect_uri?default("")}">
                                         <input id="loginname" type="text" class="itxt" name="account" tabindex="1" autocomplete="off"
-                                                                                           placeholder="邮箱/用户名/手机" />
+                                                                                           placeholder="邮箱" />
                                         <span class="clear-btn"></span>
                                     </div>
                                     <div id="entry" class="item item-fore2">
@@ -52,16 +52,10 @@
                                     </div>
                                     <div class="item item-fore3">
                                         <div class="safe">
-                                        <span>
-                                            <input id="autoLogin" name="chkRememberMe" type="checkbox" class="jdcheckbox">
-                                            <label for="">自动登录</label>
-                                        </span>
-                                        <span class="forget-pw-safe">
-                                            <a href="#" class="" target="_blank" >忘记密码?</a>
-                                        </span>
+
 
                                         <span class="forget-pw-safe">
-                                            <a href="#" class="" target="_blank" >去注册?</a>
+                                            <a href="#" class="" target="_blank" >去登录?</a>
                                         </span>
                                         </div>
 
@@ -70,7 +64,7 @@
 
                                     <div class="item item-fore5">
                                         <div class="login-btn">
-                                            <a href="javascript:;" class="btn-img btn-entry" onclick="loginSubmit();">登&nbsp;&nbsp;&nbsp;&nbsp;录</a>
+                                            <a href="javascript:;" class="btn-img btn-entry" onclick="loginSubmit();">注册</a>
                                         </div>
                                     </div>
 
