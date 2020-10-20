@@ -1,6 +1,6 @@
 package com.lucifer.controller;
 
-import com.lucifer.mapper.MemberMapper;
+import com.lucifer.mapper.oauth2.MemberMapper;
 import com.lucifer.service.MemberLoginService;
 import com.lucifer.utils.Result;
 import org.springframework.stereotype.Controller;
@@ -29,25 +29,31 @@ public class LoginController {
         return  "/web/index";
     }
 
-    @RequestMapping(value = "/sign_in",method = RequestMethod.GET)
+    @RequestMapping(value = "/sign-in",method = RequestMethod.GET)
     public String signIn(){
         //String totalMemberCount = memberMapper.getSysConfigValue("total_member_count");
         //request.setAttribute("totalMemberCount",totalMemberCount);
-        return   "/oauth2/sign_in";
+        return   "/oauth2/sign-in";
     }
 
-    @RequestMapping(value = "/sign_up",method = RequestMethod.GET)
+    @RequestMapping(value = "/sign-up",method = RequestMethod.GET)
     public String signUp(){
         //String totalMemberCount = memberMapper.getSysConfigValue("total_member_count");
         //request.setAttribute("totalMemberCount",totalMemberCount);
-        return   "/oauth2/sign_up";
+        return   "/oauth2/sign-up";
     }
 
-    @RequestMapping(value = "/email_reset",method = RequestMethod.GET)
+    @RequestMapping(value = "/sign-up/send-code",method = RequestMethod.POST)
+    @ResponseBody
+    public Result sendSingUpCode(String email) throws Exception {
+        return memberLoginService.sendSingUpCode(email);
+    }
+
+    @RequestMapping(value = "/email-reset",method = RequestMethod.GET)
     public String reset(){
         //String totalMemberCount = memberMapper.getSysConfigValue("total_member_count");
         //request.setAttribute("totalMemberCount",totalMemberCount);
-        return   "/oauth2/email_reset";
+        return   "/oauth2/email-reset";
     }
 
     @RequestMapping(value = "/login",method = RequestMethod.POST)

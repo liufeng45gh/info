@@ -3,7 +3,7 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.lucifer.mapper.MemberMapper">
+<mapper namespace="com.lucifer.mapper.oauth2.MemberMapper">
 	<resultMap type="com.lucifer.model.Member" id="MemberMap">
 		<id column="id" property="id"/>
 		<result column="telephone" property="telephone"/>
@@ -14,6 +14,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result column="updated_at" property="updatedAt"/>
 	</resultMap>
 
+	<select id="getByCountByEmail" resultType="java.lang.Integer">
+		select count(*) from member where email = #{email}
+	</select>
 	<select id="getByPhone" resultMap="MemberMap">
 	select * from member where telephone = #{telephone}
 	</select>

@@ -1,10 +1,11 @@
-package com.lucifer.mapper;
+package com.lucifer.mapper.oauth2;
 
 import com.lucifer.annotation.MapperScanSelf;
 import com.lucifer.model.Member;
 import org.apache.ibatis.annotations.Param;
+import org.mybatis.spring.annotation.MapperScan;
 
-@MapperScanSelf
+@MapperScan
 public interface MemberMapper {
 
     Integer insertMemberToken(@Param("memberId")Long memberId,@Param("token")String token);
@@ -12,6 +13,8 @@ public interface MemberMapper {
     Integer insertMember(Member member);
 
     Member getByPhone(@Param("telephone") String telephone);
+
+    Integer getByCountByEmail(@Param("email") String email);
 
     Long getMemberIdByToken(@Param("token")String token);
 

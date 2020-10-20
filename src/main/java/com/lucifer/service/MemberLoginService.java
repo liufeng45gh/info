@@ -1,12 +1,14 @@
 package com.lucifer.service;
 
+import com.lucifer.constant.ResultCode;
 import com.lucifer.exception.UnexpectedException;
-import com.lucifer.mapper.MemberMapper;
+import com.lucifer.mapper.oauth2.MemberMapper;
 import com.lucifer.mapper.oauth2.UserMapper;
 import com.lucifer.model.Member;
 import com.lucifer.model.user.User;
 import com.lucifer.utils.Constant;
 import com.lucifer.utils.Md5Utils;
+import com.lucifer.utils.RandomUtil;
 import com.lucifer.utils.Result;
 import org.apache.commons.lang.RandomStringUtils;
 import org.slf4j.Logger;
@@ -27,6 +29,9 @@ public class MemberLoginService {
     @Resource
     private MemberMapper memberMapper;
 
+    @Resource
+    private EmailService emailService;
+
     public Result loginByTelephonePhone(String telephone, String password, HttpServletResponse response){
 
         User dbUser = userMapper.getUserByAccount("klny-question");
@@ -42,7 +47,7 @@ public class MemberLoginService {
         Member member = memberMapper.getByPhone(telephone);
         if (null == member) {
             member = new Member();
-            member.setTelephone(telephone);
+            member.setPhone(telephone);
             memberMapper.insertMember(member);
             String totalMemberCount = memberMapper.getSysConfigValue("total_member_count");
             Integer tmp = Integer.valueOf(totalMemberCount);
@@ -83,5 +88,15 @@ public class MemberLoginService {
         }
         member.setId(memberId);
         memberMapper.updateMemberInfo(member);
+    }
+
+    public Result sendSingUpCode(String email) throws Exception {
+        Integer memberCount = memberMapper.getByCountByEmail(email);
+        if (memberCount>0) {
+            return Result.fail(ResultCode.USER_EXIST);
+        }
+        String code = RandomUtil.randomInt(6);
+        emailService.sendMail(email,"注册验证码",code);
+        return Result.ok();
     }
 }

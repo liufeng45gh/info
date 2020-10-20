@@ -12,7 +12,8 @@
     <link rel="stylesheet" media="all" href="/oauth2/css/entry-f3121f603b4ede1d27bc.css" />
     <link href="/oauth2/icon/favicon.ico" rel="shortcut icon" type="image/x-icon">
 
-
+    <script type="text/javascript" charset="UTF-8" src="/oauth2/script/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="/oauth2/script/sign_up.js"></script>
     <!-- End of 访问统计 -->
 </head>
 
@@ -37,7 +38,7 @@
                     <i class="iconfont ic-user"></i>
                 </div>
                 <div class="input-prepend restyle no-radius js-normal">
-                    <input placeholder="邮箱" type="tel" name="user[mobile_number]" id="user_mobile_number" />
+                    <input placeholder="邮箱" type="tel"  id="email" />
                     <i class="iconfont ic-email"></i>
                 </div>
                 <input type="hidden" name="oversea" id="oversea" value="false" />
@@ -45,7 +46,7 @@
                 <div class="input-prepend restyle no-radius security-up-code js-security-number">
                     <input type="text" name="sms_code" id="sms_code" placeholder="邮箱验证码" />
                     <i class="iconfont ic-verify"></i>
-                    <a tabindex="-1" class="btn-up-resend js-send-code-button disable" href="javascript:void(0);" id="send_code">发送验证码</a>
+                    <a tabindex="-1" class="btn-up-resend js-send-code-button disable"  id="btn_send_code">发送验证码</a>
                     <div class="js-geetest-captcha"></div>
                 </div>
                 <input type="hidden" name="security_number" id="security_number" />

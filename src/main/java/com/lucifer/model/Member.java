@@ -1,75 +1,35 @@
 package com.lucifer.model;
 
+import lombok.Data;
+
 import java.util.Date;
 
+@Data
 public class Member {
-    private Long id;
 
-    private String telephone;
+    Long id;
 
-    private String nickName;
+    String email;
 
-    private String department;
+    String phone;
 
-    private String company;
+    String nickName;
 
-    private Date createdAt;
+    String avatar;
 
-    private Date updatedAt;
+    String salt;
 
-    public Long getId() {
-        return id;
-    }
+    String trueName;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+    String gender;
 
-    public String getTelephone() {
-        return telephone;
-    }
+    String status;
 
-    public void setTelephone(String telephone) {
-        this.telephone = telephone;
-    }
+    Date birth;
 
-    public String getNickName() {
-        return nickName;
-    }
+    Date createdAt;
 
-    public void setNickName(String nickName) {
-        this.nickName = nickName;
-    }
+    Date updatedAt;
 
-    public String getDepartment() {
-        return department;
-    }
 
-    public void setDepartment(String department) {
-        this.department = department;
-    }
-
-    public Date getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(Date createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public Date getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(Date updatedAt) {
-        this.updatedAt = updatedAt;
-    }
-
-    public String getCompany() {
-        return company;
-    }
-
-    public void setCompany(String company) {
-        this.company = company;
-    }
 }
