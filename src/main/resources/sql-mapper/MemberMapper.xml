@@ -6,10 +6,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.lucifer.mapper.oauth2.MemberMapper">
 	<resultMap type="com.lucifer.model.Member" id="MemberMap">
 		<id column="id" property="id"/>
-		<result column="telephone" property="telephone"/>
-		<result column="department" property="department"/>
-		<result column="company" property="company"/>
-		<result column="nickname" property="nickName"/>
+		<result column="email" property="email"/>
+		<result column="password" property="password"/>
+		<result column="phone" property="phone"/>
+		<result column="nick_name" property="nickName"/>
+		<result column="avatar" property="avatar"/>
+		<result column="salt" property="salt"/>
+		<result column="trueName" property="true_name"/>
+		<result column="gender" property="gender"/>
+		<result column="status" property="status"/>
 		<result column="created_at" property="createdAt"/>
 		<result column="updated_at" property="updatedAt"/>
 	</resultMap>
@@ -22,9 +27,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	<insert id="insertMember" useGeneratedKeys="true" keyProperty="id">
 		insert into member
-		(telephone,created_at,updated_at)
+		(email,password,salt,nick_name,created_at,updated_at)
 		values
-		(#{telephone}, now(), now())
+		(#{email},#{password},#{salt},#{nickName}, now(), now())
 	</insert>
 	<insert id="insertMemberToken">
 		insert into m_access_token
@@ -41,6 +46,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from member where id = #{id}
 	</select>
 
+	<select id="getLoginMemberByEmail" resultMap="MemberMap">
+		select id,email,salt,password,status from member where email = #{email}
+	</select>
+
 	<update id="updateMemberInfo">
 		update member
 		set
@@ -48,6 +57,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		department = #{department},
 		company = #{company}
 		where id = #{id}
+	</update>
+
+	<update id="updatePassword">
+		update member
+		set
+		salt = #{salt},
+		password = #{password}
+		where email = #{email}
 	</update>
 
 	<select id="getSysConfigValue" resultType="java.lang.String">

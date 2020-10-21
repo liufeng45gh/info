@@ -14,6 +14,8 @@ public interface MemberMapper {
 
     Member getByPhone(@Param("telephone") String telephone);
 
+    Member getLoginMemberByEmail(@Param("email") String email);
+
     Integer getByCountByEmail(@Param("email") String email);
 
     Long getMemberIdByToken(@Param("token")String token);
@@ -21,6 +23,8 @@ public interface MemberMapper {
     Member getMemberById(@Param("id") Long id);
 
     void updateMemberInfo(Member member);
+
+    Integer updatePassword(@Param("email") String email,@Param("salt") String salt,@Param("password") String password);
 
     String getSysConfigValue(@Param("key") String key);
 

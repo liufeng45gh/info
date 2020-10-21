@@ -85,4 +85,9 @@ public class Md5Utils {
 	        }
 	        return md5;
 	    }
+
+	    public static String md5Password(String password,String salt){
+			String md5Password = Md5Utils.md5(Md5Utils.md5(password)+salt);
+			return md5Password;
+		}
 }

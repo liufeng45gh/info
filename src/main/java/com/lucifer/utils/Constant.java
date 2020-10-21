@@ -8,6 +8,8 @@ public class Constant {
 
 	public static final String TOKEN = "TOKEN";
 
+	public static final String MEMBER_ACCESS_TOKEN = "MEMBER_ACCESS_TOKEN";
+
 	public static final String KEY_RESULT_MESSAGE = "KEY_RESULT_MESSAGE";
 
 	//生图验证码

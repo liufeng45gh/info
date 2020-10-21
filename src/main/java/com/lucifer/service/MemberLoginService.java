@@ -10,14 +10,17 @@ import com.lucifer.utils.Constant;
 import com.lucifer.utils.Md5Utils;
 import com.lucifer.utils.RandomUtil;
 import com.lucifer.utils.Result;
+import com.lucifer.vo.RegisterMemberVo;
 import org.apache.commons.lang.RandomStringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
+import java.util.concurrent.TimeUnit;
 
 @Service
 public class MemberLoginService {
@@ -31,6 +34,9 @@ public class MemberLoginService {
 
     @Resource
     private EmailService emailService;
+
+    @Resource
+    StringRedisTemplate stringRedisTemplate ;
 
     public Result loginByTelephonePhone(String telephone, String password, HttpServletResponse response){
 
@@ -90,13 +96,108 @@ public class MemberLoginService {
         memberMapper.updateMemberInfo(member);
     }
 
-    public Result sendSingUpCode(String email) throws Exception {
+    public Result singUpSendCode(String email) throws Exception {
         Integer memberCount = memberMapper.getByCountByEmail(email);
         if (memberCount>0) {
             return Result.fail(ResultCode.USER_EXIST);
         }
         String code = RandomUtil.randomInt(6);
-        emailService.sendMail(email,"注册验证码",code);
+        String key = this.getRegisterCodeKey(email);
+        logger.info("email: {}, code : {}",email,code);
+        stringRedisTemplate.opsForValue().set(key,code,15, TimeUnit.MINUTES);
+        emailService.sendMail(email,"您的注册验证码,15分钟内有效",code);
+
         return Result.ok();
     }
+
+    public Result resetSendCode(String email) throws Exception {
+        Integer memberCount = memberMapper.getByCountByEmail(email);
+        if (memberCount==0) {
+            return Result.fail(ResultCode.USER_NOT_EXIST);
+        }
+        String code = RandomUtil.randomInt(6);
+        String key = this.getResetCodeKey(email);
+        logger.info("email: {}, code : {}",email,code);
+        stringRedisTemplate.opsForValue().set(key,code,15, TimeUnit.MINUTES);
+        emailService.sendMail(email,"您的修改密码验证码,15分钟内有效",code);
+
+        return Result.ok();
+    }
+
+    private String getRegisterCodeKey(String email){
+        return "oauth2:register:"+email;
+    }
+
+    private String getResetCodeKey(String email){
+        return "oauth2:reset:"+email;
+    }
+
+    public Result signUpSubmit(RegisterMemberVo memberVo, HttpServletResponse response){
+        Integer memberCount = memberMapper.getByCountByEmail(memberVo.getEmail());
+        if (memberCount>0) {
+            return Result.fail(ResultCode.USER_EXIST);
+        }
+
+        String key = this.getRegisterCodeKey(memberVo.getEmail());
+        String codeStore = stringRedisTemplate.opsForValue().get(key);
+        if (!memberVo.getCode().equals(codeStore)) {
+            return Result.fail(ResultCode.CODE_NOT_EQUALS);
+        }
+        String salt = RandomUtil.getNextSalt();
+        String md5Password= Md5Utils.md5Password(memberVo.getPassword(),salt);
+        memberVo.setSalt(salt);
+        memberVo.setPassword(md5Password);
+        memberMapper.insertMember(memberVo);
+        this.generateToken(memberVo.getId(),response);
+        return Result.ok();
+    }
+
+    private void generateToken(Long userId,HttpServletResponse response){
+        String token = RandomStringUtils.randomAlphanumeric(20);
+        String key = this.getTokenKey(token);
+        stringRedisTemplate.opsForValue().set(key,String.valueOf(userId),90,TimeUnit.DAYS);
+        Cookie cookie = new Cookie(Constant.MEMBER_ACCESS_TOKEN,token);
+        cookie.setPath("/");
+        cookie.setMaxAge(90 * 24*60*60);
+        response.addCookie(cookie);
+    }
+
+    private String getTokenKey(String token){
+        return "oauth2:token:"+token;
+    }
+
+    public Result emailResetSubmit(RegisterMemberVo memberVo){
+        Integer memberCount = memberMapper.getByCountByEmail(memberVo.getEmail());
+        if (memberCount==0) {
+            return Result.fail(ResultCode.USER_NOT_EXIST);
+        }
+
+        String key = this.getResetCodeKey(memberVo.getEmail());
+        String codeStore = stringRedisTemplate.opsForValue().get(key);
+        if (!memberVo.getCode().equals(codeStore)) {
+            return Result.fail(ResultCode.CODE_NOT_EQUALS);
+        }
+        String salt = RandomUtil.getNextSalt();
+        String md5Password= Md5Utils.md5Password(memberVo.getPassword(),salt);
+        //memberVo.setSalt(salt);
+        //memberVo.setPassword(md5Password);
+        memberMapper.updatePassword(memberVo.getEmail(),salt,md5Password);
+        //this.generateToken(memberVo.getId(),response);
+        return Result.ok();
+    }
+
+    public Result signInSubmit(RegisterMemberVo memberVo, HttpServletResponse response){
+        Member dbMember = memberMapper.getLoginMemberByEmail(memberVo.getEmail());
+        if (null == dbMember) {
+            return Result.fail(ResultCode.USER_NOT_EXIST);
+        }
+
+        String md5Password= Md5Utils.md5Password(memberVo.getPassword(),dbMember.getSalt());
+       if (!md5Password.equals(dbMember.getPassword())) {
+           return Result.fail(ResultCode.EMAIL_OR_PASSWORD_WRONG);
+       }
+        this.generateToken(memberVo.getId(),response);
+        return Result.ok();
+    }
+
 }
