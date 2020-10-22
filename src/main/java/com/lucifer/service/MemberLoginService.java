@@ -1,5 +1,6 @@
 package com.lucifer.service;
 
+import com.lucifer.constant.MailTemplate;
 import com.lucifer.constant.ResultCode;
 import com.lucifer.exception.UnexpectedException;
 import com.lucifer.mapper.oauth2.MemberMapper;
@@ -105,7 +106,7 @@ public class MemberLoginService {
         String key = this.getRegisterCodeKey(email);
         logger.info("email: {}, code : {}",email,code);
         stringRedisTemplate.opsForValue().set(key,code,15, TimeUnit.MINUTES);
-        emailService.sendMail(email,"您的注册验证码,15分钟内有效",code);
+        emailService.sendMail(email, MailTemplate.registerCodeSubject,MailTemplate.generateRegisterCodeContent(code));
 
         return Result.ok();
     }
@@ -119,7 +120,7 @@ public class MemberLoginService {
         String key = this.getResetCodeKey(email);
         logger.info("email: {}, code : {}",email,code);
         stringRedisTemplate.opsForValue().set(key,code,15, TimeUnit.MINUTES);
-        emailService.sendMail(email,"您的修改密码验证码,15分钟内有效",code);
+        emailService.sendMail(email,MailTemplate.resetCodeSubject,MailTemplate.generateResetCodeContent(code));
 
         return Result.ok();
     }
