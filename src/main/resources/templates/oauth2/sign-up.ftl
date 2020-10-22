@@ -25,8 +25,8 @@
     <div class="main">
 
 
-        <h4 class="title">
-            <div class="normal-title">
+        <h4 class="title" style="margin-bottom: 0px">
+            <div class="normal-title" >
                 <a class="" href="/oauth2/sign-in">登录</a>
                 <b>·</b>
                 <a id="js-sign-up-btn" class="active" href="/oauth2/sign-up">注册</a>
@@ -36,10 +36,12 @@
         <div class="js-sign-up-container">
             <form class="new_user" accept-charset="UTF-8" method="post">
 
+                <p class="sign-up-msg">若收不到邮件, 请留意下邮件垃圾箱</p>
                 <div class="input-prepend restyle">
                     <input placeholder="昵称" type="text" id="nick_name" />
                     <i class="iconfont ic-user"></i>
                 </div>
+
                 <div class="input-prepend restyle no-radius js-normal">
                     <input placeholder="邮箱" type="tel"  id="email" />
                     <i class="iconfont ic-email"></i>

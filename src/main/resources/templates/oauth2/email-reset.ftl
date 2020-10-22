@@ -30,9 +30,10 @@
 
 
         <!-- <h4 class="reset-title">用邮箱重置密码</h4> -->
-        <h4 class="reset-title">用邮箱重置密码</h4>
+        <h4 class="reset-title" style="margin-bottom: 0px">用邮箱重置密码</h4>
         <!-- 用邮箱重置密码 -->
         <form action="#" accept-charset="UTF-8" method="post">
+            <p class="sign-up-msg">若收不到邮件, 请留意下邮件垃圾箱</p>
             <div class="input-prepend restyle no-radius">
                 <input type="text" name="email" id="email" placeholder="请输入注册或绑定的邮箱" />
                 <i class="iconfont ic-email"></i>
