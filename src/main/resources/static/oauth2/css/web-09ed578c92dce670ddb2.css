@@ -9728,6 +9728,25 @@ nav .user:hover {
     background-color: #f5f5f5
 }
 
+nav .user .nickname {
+    position: relative;
+    height: 40px;
+    line-height: 24px;
+    /**margin: 8px 12px 0;**/
+    margin: 8px 24px 8px 16px;
+    font-size: 15px;
+    padding-top: 6px;
+}
+
+nav .user .nickname:before {
+    content: "";
+    position: absolute;
+    top: 18px;
+    right: -14px;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 6px solid #999
+}
 nav .user .avatar {
     position: relative;
     width: 40px;

@@ -15,8 +15,8 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Controller
-@RequestMapping(value = "/mobile")
-public class QuestionController {
+@RequestMapping(value = "/carpool")
+public class IndexController {
 
     @Resource
     QuestionMapper questionMapper;
@@ -24,9 +24,9 @@ public class QuestionController {
     @Resource
     QuestionService questionService;
 
-    @RequestMapping(value = "/list",method = RequestMethod.GET)
+    @RequestMapping(value = {"/index","/"},method = RequestMethod.GET)
     public String toLogin(){
-        return   "/web/list";
+        return   "/carpool/index";
     }
 
     @RequestMapping(value = "/show-score",method = RequestMethod.GET)
