@@ -60,6 +60,7 @@ public class EmailService {
 
         Message message = new MimeMessage(session);
 
+        message.addHeader("X-Mailer","Microsoft Outlook Express 6.00.2900.2869");
         message.setFrom(new InternetAddress(sendMail));
 
         message.setRecipient(MimeMessage.RecipientType.TO, new InternetAddress(receiveMail));
@@ -77,6 +78,7 @@ public class EmailService {
         //保存设置
 
         message.saveChanges();
+
 
         return message;
 
