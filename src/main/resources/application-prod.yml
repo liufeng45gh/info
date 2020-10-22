@@ -13,8 +13,8 @@ jdbc-user:
   driverClass: com.mysql.cj.jdbc.Driver
   url: jdbc:mysql://localhost/oauth2-user?characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai
   #jdbc:mysql://localhost/oauth2-user?useUnicode=true&characterEncoding=utf-8&autoReconnect=true&rewriteBatchedStatements=TRUE&serverTimezone=UTC
-  username: root
-  password: lucifer1qaz2wsx
+  username: service
+  password: lucifer1qaz@WSX
 jdbc:
   driverClass: com.mysql.cj.jdbc.Driver
   url: jdbc:mysql://127.0.0.1:3306/question-lib?characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai
