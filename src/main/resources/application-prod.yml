@@ -13,7 +13,7 @@ jdbc-user:
   driverClass: com.mysql.cj.jdbc.Driver
   url: jdbc:mysql://localhost/oauth2-user?characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai
   #jdbc:mysql://localhost/oauth2-user?useUnicode=true&characterEncoding=utf-8&autoReconnect=true&rewriteBatchedStatements=TRUE&serverTimezone=UTC
-  username: service
+  username: root
   password: lucifer1qaz2wsx
 jdbc:
   driverClass: com.mysql.cj.jdbc.Driver
