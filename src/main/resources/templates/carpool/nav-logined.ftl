@@ -6,8 +6,8 @@
 
         <!-- 右上角 -->
         <!-- 登录显示写文章 -->
-        <a class="btn write-btn" target="_blank" href="https://www.jianshu.com/writer#/">
-            写文章
+        <a class="btn write-btn" target="_blank" href="/">
+            发布
         </a>
 
         <div class="btn nickname" id="sign_in" >昵称</div>

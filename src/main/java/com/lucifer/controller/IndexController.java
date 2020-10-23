@@ -15,7 +15,6 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Controller
-@RequestMapping(value = "/carpool")
 public class IndexController {
 
     @Resource
@@ -26,7 +25,7 @@ public class IndexController {
 
     @RequestMapping(value = {"/index","/"},method = RequestMethod.GET)
     public String toLogin(){
-        return   "/carpool/index";
+        return   "redirect:/carpool/index/";
     }
 
     @RequestMapping(value = "/show-score",method = RequestMethod.GET)
