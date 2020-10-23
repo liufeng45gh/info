@@ -9728,17 +9728,17 @@ nav .user:hover {
     background-color: #f5f5f5
 }
 
-nav .user .nickname {
+nav .nickname {
     position: relative;
-    height: 40px;
-    line-height: 24px;
     /**margin: 8px 12px 0;**/
     margin: 8px 24px 8px 16px;
-    font-size: 15px;
     padding-top: 6px;
+    float: right;
+    /**margin: 11px 6px 0 10px;**/
+    font-size: 15px;
 }
 
-nav .user .nickname:before {
+nav  .nickname:before {
     content: "";
     position: absolute;
     top: 18px;

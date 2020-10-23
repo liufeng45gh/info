@@ -9,11 +9,15 @@
         <a class="btn write-btn" target="_blank" href="https://www.jianshu.com/writer#/">
             写文章
         </a>
+
+        <div class="btn nickname" id="sign_in" >昵称</div>
         <!-- 如果用户登录，显示下拉菜单 -->
         <div class="user">
+            <!--
             <div data-hover="dropdown" class="nickname">
                     昵称
             </div>
+            -->
             <ul class="dropdown-menu">
                 <li>
                     <a href="https://www.jianshu.com/u/574e1db44e2e">

@@ -29,8 +29,10 @@
 <!--
 -->
 <body lang="zh-CN" class="reader-black-font">
-<#include "navigation.ftl"/>
-
+<#include "nav-logined.ftl"/>
+<#--
+<#include "nav-not-login.ftl"/>
+ -->
 
 <div class="container index">
     <div class="row">
