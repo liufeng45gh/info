@@ -26,7 +26,7 @@
 
         <li id="note-68818993" data-note-id="68818993" class="have-img">
             <a class="wrap-img" href="https://www.jianshu.com/p/05250b96259d" target="_blank">
-                <img class="  img-blur-done" src="./简书 - 创作你的创作_files/2259045-678338a482b04a68" alt="120">
+                <img class="  img-blur-done" src="./a.png" alt="120">
             </a>
             <div class="content">
                 <a class="title" target="_blank" href="https://www.jianshu.com/p/05250b96259d">金士杰：58岁娶33岁女生，60岁喜获双胞胎，今69岁仍拼命赚钱养家</a>

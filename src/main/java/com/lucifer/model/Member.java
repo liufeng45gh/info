@@ -2,10 +2,13 @@ package com.lucifer.model;
 
 import lombok.Data;
 
+import java.io.Serializable;
 import java.util.Date;
 
 @Data
-public class Member {
+public class Member implements Serializable {
+
+    private static final long serialVersionUID = -1l;
 
     Long id;
 

@@ -16,7 +16,8 @@
     <link rel="stylesheet" media="all" href="/carpool/css/index.css">
 
     <link href="/oauth2/icon/favicon.ico" rel="shortcut icon" type="image/x-icon">
-
+    <script type="text/javascript" charset="UTF-8" src="/oauth2/script/jquery-1.9.1.min.js"></script>
+    <script  type="text/javascript" src="/carpool/script/nav.js"></script>
 
 
 
@@ -29,10 +30,15 @@
 <!--
 -->
 <body lang="zh-CN" class="reader-black-font">
-<#include "nav-logined.ftl"/>
+
 <#--
 <#include "nav-not-login.ftl"/>
  -->
+<#if Request.MEMBER_LOGIN?exists>
+    <#include "nav-logined.ftl"/>
+<#else>
+    <#include "nav-not-login.ftl"/>
+</#if>
 
 <div class="container index">
     <div class="row">

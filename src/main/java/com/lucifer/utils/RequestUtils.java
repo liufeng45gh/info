@@ -1,5 +1,7 @@
 package com.lucifer.utils;
 
+import com.lucifer.model.Member;
+
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 
@@ -16,5 +18,18 @@ public class RequestUtils {
             }
         }
         return null;
+    }
+
+    public static Boolean isMemberLogin( HttpServletRequest request){
+        Member member = getMemberLogin(request);
+        if(null != member){
+            return true;
+        }
+        return false;
+    }
+
+    public static Member getMemberLogin( HttpServletRequest request){
+        Member member = (Member) request.getAttribute(Constant.MEMBER_LOGIN);
+        return member;
     }
 }

@@ -13,6 +13,7 @@ import com.lucifer.utils.RandomUtil;
 import com.lucifer.utils.Result;
 import com.lucifer.vo.RegisterMemberVo;
 import org.apache.commons.lang.RandomStringUtils;
+import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.redis.core.StringRedisTemplate;
@@ -38,6 +39,9 @@ public class MemberLoginService {
 
     @Resource
     StringRedisTemplate stringRedisTemplate ;
+
+    @Resource
+    MemberCacheService memberCacheService;
 
     public Result loginByTelephonePhone(String telephone, String password, HttpServletResponse response){
 
@@ -75,16 +79,18 @@ public class MemberLoginService {
         return Result.ok(token);
     }
 
-    public Member getMemberByToken(String token) throws UnexpectedException {
-        Long memberId = memberMapper.getMemberIdByToken(token);
+    public Member getMemberByToken(String token)  {
+        Long memberId = this.getMemberIdByToken(token);
+        logger.info("memberId is : {}",memberId);
         if (memberId == null) {
-            throw new UnexpectedException(" memberId can not find by token: " + token);
+            //throw new UnexpectedException(" memberId can not find by token: " + token);
+            return null;
         }
 
-        Member member = memberMapper.getMemberById(memberId);
-        if (null == member) {
-            throw new UnexpectedException(" member can not find by id: " + memberId);
-        }
+        Member member = memberCacheService.getMemberById(memberId);
+//        if (null == member) {
+//            throw new UnexpectedException(" member can not find by id: " + memberId);
+//        }
         return member;
     }
 
@@ -149,6 +155,7 @@ public class MemberLoginService {
         memberVo.setSalt(salt);
         memberVo.setPassword(md5Password);
         memberMapper.insertMember(memberVo);
+        logger.info("user id is {}",memberVo.getId());
         this.generateToken(memberVo.getId(),response);
         return Result.ok();
     }
@@ -165,6 +172,17 @@ public class MemberLoginService {
 
     private String getTokenKey(String token){
         return "oauth2:token:"+token;
+    }
+
+    public Long getMemberIdByToken(String token){
+        String key = this.getTokenKey(token);
+        logger.info("key : {}",key);
+        String id = stringRedisTemplate.opsForValue().get(key);
+        logger.info("redis getMemberIdByToken: {}",id);
+        if (StringUtils.isEmpty(id)) {
+            return null;
+        }
+        return Long.valueOf(id);
     }
 
     public Result emailResetSubmit(RegisterMemberVo memberVo){
@@ -197,7 +215,7 @@ public class MemberLoginService {
        if (!md5Password.equals(dbMember.getPassword())) {
            return Result.fail(ResultCode.EMAIL_OR_PASSWORD_WRONG);
        }
-        this.generateToken(memberVo.getId(),response);
+        this.generateToken(dbMember.getId(),response);
         return Result.ok();
     }
 
