@@ -12,7 +12,10 @@
 
     <link rel="stylesheet" media="all" href="/oauth2/css/web-09ed578c92dce670ddb2.css">
 
+    <!--
     <link rel="stylesheet" media="all" href="/carpool/css/entry-d6c0cd47a055b4f3ef28.css">
+-->
+    <link rel="stylesheet" media="all" href="/carpool/css/entry-dc1e51fe2b436e18f5ee.css">
     <link rel="stylesheet" media="all" href="/carpool/css/index.css">
 
     <link href="/oauth2/icon/favicon.ico" rel="shortcut icon" type="image/x-icon">
@@ -34,23 +37,20 @@
 <#--
 <#include "nav-not-login.ftl"/>
  -->
-<#if Request.MEMBER_LOGIN?exists>
-    <#include "nav-logined.ftl"/>
-<#else>
-    <#include "nav-not-login.ftl"/>
-</#if>
+
+<#include "nav-logined.ftl"/>
+
 
 <div class="container index">
     <div class="row">
         <div class="col-xs-16 main">
             <!-- Banner -->
             <div class="split-line"></div>
-            <#include "index-content.ftl"/>
-            <a data-page="3" href="/" class="load-more">阅读更多</a></div>
-            <#include "right.ftl"/>
+            <#include "publish-content.ftl"/>
+
     </div>
 </div>
-<div class="side-tool"><ul><li data-placement="left" data-toggle="tooltip" data-container="body" data-original-title="回到顶部" style="display: none;"><a class="function-button"><i class="iconfont ic-backtop"></i></a></li> <!----> <!----> <!----> <!----> <!----> <!----></ul></div>
-<#include "footer.ftl"/>
+
+
 
 <!----></html>

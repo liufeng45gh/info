@@ -12,4 +12,8 @@ public class CarPoolController {
     public String toLogin(){
         return   "/carpool/index";
     }
+    @RequestMapping(value = {"/publish"},method = RequestMethod.GET)
+    public String publish(){
+        return  "/carpool/publish";
+    }
 }

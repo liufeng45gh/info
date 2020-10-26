@@ -7,7 +7,7 @@
 
         <!-- 右上角 -->
         <!-- 登录显示写文章 -->
-        <a class="btn write-btn" target="_blank" href="/">
+        <a class="btn write-btn" target="_blank" href="/carpool/publish">
             发布
         </a>
         <!--

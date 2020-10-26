@@ -6,12 +6,12 @@ import com.lucifer.utils.Constant;
 import com.lucifer.utils.RequestUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
-import org.springframework.context.annotation.Configuration;
 
 import javax.annotation.Resource;
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @Slf4j
@@ -42,8 +42,24 @@ public class WebMemberLoginFilter implements Filter {
         if (!StringUtils.isEmpty(token)) {
             member = memberLoginService.getMemberByToken(token);
         }
-        servletRequest.setAttribute(Constant.MEMBER_LOGIN,member);
-        filterChain.doFilter(servletRequest,servletResponse);
+        //member 不为空直接进入controller
+        if (null != member) {
+            servletRequest.setAttribute(Constant.MEMBER_LOGIN,member);
+            filterChain.doFilter(servletRequest,servletResponse);
+            return;
+        }
 
+        //需要验证登录的urls 需要跳转到登录页
+        String [] mustLoginPaths = {"/carpool/publish","/carpool/abcd"};
+        for (String str : mustLoginPaths) {
+            if (spath.endsWith(str)) {
+                log.info("WebMemberLoginFilter.doFilter redirect by {}",str);
+                HttpServletResponse response = (HttpServletResponse)servletResponse;
+                response.sendRedirect("/oauth2/sign-in");
+                return;
+            }
+        }
+        //其他进入controller
+        filterChain.doFilter(servletRequest,servletResponse);
     }
 }
