@@ -3,15 +3,16 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.lucifer.mapper.QuestionMapper">
-	<resultMap type="com.lucifer.model.Question" id="QuestionMap">
+<mapper namespace="com.lucifer.mapper.CarpoolMapper">
+	<resultMap type="com.lucifer.model.Carpool" id="CarpoolMap">
 		<id column="id" property="id"/>
-		<result column="title" property="title"/>
-		<result column="status" property="status"/>
-		<result column="right_answer" property="rightAnswer"/>
-		<result column="right_answer_description" property="rightAnswerDescription"/>
-		<result column="is_more_select" property="isMoreSelect"/>
-
+		<result column="from" property="from"/>
+		<result column="to" property="to"/>
+		<result column="pass1" property="pass1"/>
+		<result column="pass2" property="pass2"/>
+		<result column="pass3" property="pass3"/>
+		<result column="departure_time" property="departureTime"/>
+		<result column="comment" property="comment"/>
 		<result column="created_at" property="createdAt"/>
 		<result column="updated_at" property="updatedAt"/>
 	</resultMap>
@@ -37,11 +38,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	</select>
 
-	<insert id="insertQuestion" useGeneratedKeys="true" keyProperty="id">
-		insert into question
-		(title ,status,right_answer,right_answer_description ,created_at,updated_at ,is_deleted,is_more_select)
+	<insert id="insertCarpool" useGeneratedKeys="true" keyProperty="id">
+		insert into carpool
+		(from ,to,pass1,pass2 ,pass3,departure_time,comment,created_at,updated_at)
 		values
-		(#{title} ,0,#{rightAnswer},#{rightAnswerDescription} ,now() ,now() ,0,#{isMoreSelect})
+		(#{from} ,#{to},#{pass1},#{pass2} ,#{pass3},#{departureTime} ,#{comment},#{createdAt},#{updatedAt})
 	</insert>
 
 	<select id="getQuestion" resultMap="QuestionMap">

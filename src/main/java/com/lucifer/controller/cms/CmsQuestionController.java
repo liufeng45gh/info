@@ -1,7 +1,7 @@
 package com.lucifer.controller.cms;
 
 import com.lucifer.mapper.AnswerMapper;
-import com.lucifer.mapper.QuestionMapper;
+import com.lucifer.mapper.CarpoolMapper;
 
 import com.lucifer.model.Answer;
 import com.lucifer.model.Question;
@@ -25,7 +25,7 @@ import java.util.Map;
 public class CmsQuestionController {
 
     @Resource
-    QuestionMapper questionMapper;
+    CarpoolMapper questionMapper;
 
     @Resource
     AnswerMapper answerMapper;
