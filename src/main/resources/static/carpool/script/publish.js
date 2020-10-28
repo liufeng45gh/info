@@ -14,13 +14,22 @@ function removePass(btn){
 }
 function save(){
     var placeArray = $(".information").find(".place");
-    placeArray.forEach(function () {
+    $.each(placeArray,function () {
         var value = $(this).val();
         if (isEmpty(value)) {
-            layer.msg("存在字段填写不完整");
+            layer.msg("必须字段填写不完整");
             return;
         }
     });
+    var shortTextArray = $(".information").find(".short-text");
+    $.each(shortTextArray,function () {
+        var value = $(this).val();
+        if (isEmpty(value)) {
+            layer.msg("必须字段填写不完整");
+            return;
+        }
+    });
+
 }
 
 function initSelect(){
