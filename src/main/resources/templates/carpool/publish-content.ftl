@@ -30,7 +30,7 @@
             </ul>
             <!---->
         </div>
-        <div class="col-xs-16 col-xs-offset-8 main">
+        <div class="col-xs-17 col-xs-offset-7 main">
             <table>
                 <thead>
                 <tr>
@@ -40,52 +40,78 @@
                 </thead>
                 <tbody class="information">
                 <tr>
-                    <td class="top-line setting-title setting-verticle"> 性别 </td>
-                    <td class="top-line"><input type="radio" value="1" /> <span>男</span> <input type="radio" value="2" /> <span>女</span> <input type="radio" value="3" /> <span>保密</span></td>
+                    <td class="top-line setting-title setting-verticle"> 起始地 </td>
+                    <td class="top-line">
+                        <input type="text" id="from-province" class="place" /> <span>省</span>
+                        <input  type="text" id="from-city" class="place" /> <span>市</span>
+                        <input type="text" id="from-district" class="place"/> <span>区</span>
+                    </td>
                 </tr>
                 <tr>
-                    <td class="setting-title pull-left">个人简介</td>
+                    <td class="top-line setting-title setting-verticle"> 目的地 </td>
+                    <td class="top-line">
+                        <input type="text" id="to-province" class="place" /> <span>省</span>
+                        <input  type="text" id="to-city" class="place" /> <span>市</span>
+                        <input type="text" id="to-district" class="place"/> <span>区</span>
+                    </td>
+                </tr>
+                <tr id="pass-point">
+                    <td class="setting-title">途径地点</td>
+                    <td class="weixin-qrcode">
+                        <a class="btn btn-hollow" id="btn-add-pass">添加 </a>
+                        <p class="pull-right">最多添加三个途径地点</p></td>
+                </tr>
+                <tr>
+                    <td class="top-line setting-title setting-verticle"> 出发时间 </td>
+                    <td class="top-line">
+                        <input type="text" id="departure-day" class="place" /> <span>日</span>
+                        <input  type="text" id="departure-hour" class="place" /> <span>时</span>
+                        <input type="text" id="departure-minute" class="place"/> <span>分</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="setting-title pull-left">补充说明</td>
                     <td>
                         <form>
-                            <textarea placeholder="填写你的个人简介"></textarea>
-                        </form></td>
+                            <textarea placeholder="填写补充说明"></textarea>
+                        </form>
+                    </td>
                 </tr>
                 <tr>
-                    <td class="setting-title pull-left setting-input">个人网站</td>
+                    <td class="setting-title pull-left setting-input">联系人</td>
                     <td>
                         <form>
-                            <input type="text" name="website" placeholder="http://你的网址" />
-                            <p class="pull-right">填写后会在个人主页显示图标</p>
-                        </form></td>
+                            <input type="text" id="linkman" class="short-text" placeholder="联系人" />
+                            <p class="pull-right">必填</p>
+                        </form>
+                    </td>
                 </tr>
                 <tr>
-                    <td class="setting-title">微信二维码</td>
-                    <td class="weixin-qrcode"><input type="file" class="hide" /> <a class="btn btn-hollow"><input type="file" class="hide" /> 更换图片 </a> <p class="pull-right">上传后会在个人主页显示图标</p></td>
+                    <td class="setting-title pull-left setting-input">联系电话</td>
+                    <td>
+                        <form>
+                            <input type="text" id="phone" class="short-text" placeholder="联系电话" />
+                            <p class="pull-right">必填</p>
+                        </form>
+                    </td>
                 </tr>
-                <tr>
-                    <td class="setting-title setting-input pull-left">社交帐号</td>
-                    <td class="social-bind"><p>你可以通过绑定的社交帐号登录简书。出于安全因素, 你最初用来创建账户的社交帐号不能移除。</p> <p>如果帐号被占用，你可以在<a href="/p/eea64a29cf9d">简书帐号绑定解绑相关问题汇总</a>中获得相关帮助。</p>
-                        <ul class="social-bind-list">
-                            <li>
-                                <div class="bind-name">
-                                    <i class="iconfont ic-weibo"></i>
-                                    <a href="/users/auth/weibo?can_transfer=true">绑定微博<i class="iconfont ic-arrow"></i></a>
-                                </div></li>
-                            <li>
-                                <div class="bind-name">
-                                    <i class="iconfont ic-wechat"></i>
-                                    <a href="/users/auth/wechat?can_transfer=true">绑定微信<i class="iconfont ic-arrow"></i></a>
-                                </div></li>
-                            <li>
-                                <div class="bind-name">
-                                    <i class="iconfont ic-qq_connect"></i>
-                                    <a href="/users/auth/qq_connect?can_transfer=true">绑定 QQ<i class="iconfont ic-arrow"></i></a>
-                                </div></li>
-                        </ul></td>
-                </tr>
+
+
                 </tbody>
+
             </table>
             <input type="submit" class="btn btn-success setting-save" value="保存" />
+            <template style="display: none;" id="pass-template">
+                <tr class="pass-place" >
+                    <td class="top-line setting-title setting-verticle"> 途径地点 </td>
+                    <td class="top-line">
+                        <input type="text"  class="place" /> <span>省</span>
+                        <input  type="text"  class="place" /> <span>市</span>
+                        <input type="text"  class="place"/> <span>区</span>
+                        <p class="pull-right" style="cursor: pointer;" onclick="removePass(this)" >删除</p>
+                    </td>
+                </tr>
+            </template>
             <!---->
             <!---->
             <!---->

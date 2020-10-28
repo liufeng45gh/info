@@ -14,6 +14,9 @@ public class Carpool {
     String pass3;
     Date departureTime;
     String comment;
+    Integer site;
+    String linkman;
+    String phone;
     Date createdAt;
     Date updatedAt;
 }

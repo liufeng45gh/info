@@ -8,7 +8,7 @@
     bottom: 0;
     margin: 86px 0 0;
     padding: 0 0 30px;
-    width: 280px;
+    width: 220px;
     overflow: auto
 }
 
@@ -264,7 +264,15 @@ body.reader-night-mode .setting .main textarea {
 }
 
 .setting .main .setting-head {
-    width: 150px
+    width: 120px
+}
+
+.setting .main .place {
+    width: 120px
+}
+
+.setting .main .short-text{
+    width: 170px
 }
 
 .setting .main .avatar {

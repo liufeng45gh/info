@@ -21,6 +21,7 @@
     <link href="/oauth2/icon/favicon.ico" rel="shortcut icon" type="image/x-icon">
     <script type="text/javascript" charset="UTF-8" src="/oauth2/script/jquery-1.9.1.min.js"></script>
     <script  type="text/javascript" src="/carpool/script/nav.js"></script>
+    <script  type="text/javascript" src="/carpool/script/publish.js"></script>
 
 
 

@@ -13,6 +13,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result column="pass3" property="pass3"/>
 		<result column="departure_time" property="departureTime"/>
 		<result column="comment" property="comment"/>
+		<result column="site" property="site"/>
+		<result column="linkman" property="linkman"/>
+		<result column="phone" property="phone"/>
 		<result column="created_at" property="createdAt"/>
 		<result column="updated_at" property="updatedAt"/>
 	</resultMap>
@@ -40,9 +43,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<insert id="insertCarpool" useGeneratedKeys="true" keyProperty="id">
 		insert into carpool
-		(from ,to,pass1,pass2 ,pass3,departure_time,comment,created_at,updated_at)
+		(from ,to,pass1,pass2 ,pass3,departure_time,comment,site,linkman,phone,created_at,updated_at)
 		values
-		(#{from} ,#{to},#{pass1},#{pass2} ,#{pass3},#{departureTime} ,#{comment},#{createdAt},#{updatedAt})
+		(#{from} ,#{to},#{pass1},#{pass2} ,#{pass3},#{departureTime} ,#{comment},#{site},#{linkman},#{phone},#{createdAt},#{updatedAt})
 	</insert>
 
 	<select id="getQuestion" resultMap="QuestionMap">
