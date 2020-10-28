@@ -58,15 +58,19 @@
                 <tr id="pass-point">
                     <td class="setting-title">途径地点</td>
                     <td class="weixin-qrcode">
-                        <a class="btn btn-hollow" id="btn-add-pass">添加 </a>
+                        <a class="btn btn-hollow" id="btn-add-pass" onclick="addPass">添加 </a>
                         <p class="pull-right">最多添加三个途径地点</p></td>
                 </tr>
                 <tr>
                     <td class="top-line setting-title setting-verticle"> 出发时间 </td>
                     <td class="top-line">
-                        <input type="text" id="departure-day" class="place" /> <span>日</span>
-                        <input  type="text" id="departure-hour" class="place" /> <span>时</span>
-                        <input type="text" id="departure-minute" class="place"/> <span>分</span>
+                        <input type="text" id="departure-day" class="place" readonly="readonly"  onClick="WdatePicker()"/> <span>日</span>
+                        <select   id="departure-hour" class="place" >
+                        </select>
+                        <span>时</span>
+                        <select type="text" id="departure-minute" class="place">
+                        </select>
+                        <span>分</span>
                     </td>
                 </tr>
                 <tr>
@@ -100,7 +104,7 @@
                 </tbody>
 
             </table>
-            <input type="submit" class="btn btn-success setting-save" value="保存" />
+            <input type="submit" class="btn btn-success setting-save"id="btn-submit" value="保存" />
             <template style="display: none;" id="pass-template">
                 <tr class="pass-place" >
                     <td class="top-line setting-title setting-verticle"> 途径地点 </td>

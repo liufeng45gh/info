@@ -268,7 +268,12 @@ body.reader-night-mode .setting .main textarea {
 }
 
 .setting .main .place {
-    width: 120px
+    width: 120px;
+    padding: 5px 10px;
+    font-size: 15px;
+    border: 1px solid #c8c8c8;
+    border-radius: 4px;
+    background-color: hsla(0,0%,71%,.1)
 }
 
 .setting .main .short-text{

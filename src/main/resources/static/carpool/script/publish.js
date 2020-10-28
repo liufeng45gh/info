@@ -12,9 +12,42 @@ function removePass(btn){
     console.log("removePass called")
     $(btn).parent().parent().remove();
 }
-$(function () {
-    $("#btn-add-pass").click(function () {
-        addPass();
+function save(){
+    var placeArray = $(".information").find(".place");
+    placeArray.forEach(function () {
+        var value = $(this).val();
+        if (isEmpty(value)) {
+            layer.msg("存在字段填写不完整");
+            return;
+        }
     });
+}
+
+function initSelect(){
+    for (var i = 0;i<24 ;i++ ) {
+        var text = i;
+        if (i<10) {
+            text = "0" + i;
+        }
+        var value = text;
+        $("#departure-hour").append("<option value='"+value+"'>"+text+"</option>");
+    }
+
+    for (var i = 0;i<60 ;i=i+5 ) {
+        var text = i;
+        if (i<10) {
+            text = "0" + i;
+        }
+        var value = text;
+        $("#departure-minute").append("<option value='"+value+"'>"+text+"</option>");
+    }
+
+}
+$(function () {
+    initSelect();
+    $("#btn-submit").click(function () {
+        save();
+    });
+
 });
 
