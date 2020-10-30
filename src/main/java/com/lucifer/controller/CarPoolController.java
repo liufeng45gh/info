@@ -32,4 +32,10 @@ public class CarPoolController {
     public Result publishSubmit(@RequestBody Carpool carpool){
         return  carpoolService.saveCarpool(carpool);
     }
+
+    @RequestMapping(value = {"/publish/all"},method = RequestMethod.GET)
+    public String allPublish(){
+        return  "/carpool/publish-all";
+    }
+
 }

@@ -61,19 +61,19 @@ function save(){
     data_send.comment =  $("#comment ").val() ;
     console.log("data_send.comment: "+data_send.comment)
 
-    data_send.site =  $("#site ").val() ;
+    data_send.site =  $("#site").val() ;
     console.log("data_send.site: "+data_send.site)
     if (isNaN(data_send.site)) {
         layer.msg("座位必须为数字");
         return;
     }
 
-    data_send.linkman =  $("#linkman ").text() ;
+    data_send.linkman =  $("#linkman").val() ;
     console.log("data_send.linkman: "+data_send.linkman)
 
-    data_send.phone =  $("#phone ").text() ;
+    data_send.phone =  $("#phone").val() ;
     console.log("data_send.phone: "+data_send.phone)
-    var reg = /^1[3456789]d{9}$/;
+    var reg = /^[1][3,4,5,7,8][0-9]{9}$/;
     if (!reg.test(data_send.phone)) {
         layer.msg("手机号码不正确");
         return;

@@ -9,9 +9,9 @@ import org.springframework.stereotype.Component;
 @Component
 public class ServerConfig {
 
-    @Value("${server.resetCache}")
-    public Boolean resetCache;
-
-    @Value("${server.port}")
-    public String port;
+//    @Value("${server.resetCache}")
+//    public Boolean resetCache;
+//
+//    @Value("${server.port}")
+//    public String port;
 }

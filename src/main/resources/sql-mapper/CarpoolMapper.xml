@@ -20,7 +20,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result column="updated_at" property="updatedAt"/>
 	</resultMap>
 
-	<select id="questionCmsSearchList" resultMap="QuestionMap">
+	<select id="questionCmsSearchList" resultMap="CarpoolMap">
 		select * from question
 		<where>
 			<if test="title != null and title !=''">
@@ -43,12 +43,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<insert id="insertCarpool" useGeneratedKeys="true" keyProperty="id">
 		insert into carpool
-		(from ,to,pass1,pass2 ,pass3,departure_time,comment,site,linkman,phone,created_at,updated_at)
+		(carpool.from ,carpool.to,pass1,pass2 ,pass3,departure_time,carpool.comment,site,linkman,phone,created_at,updated_at)
 		values
 		(#{from} ,#{to},#{pass1},#{pass2} ,#{pass3},#{departureTime} ,#{comment},#{site},#{linkman},#{phone},#{createdAt},#{updatedAt})
 	</insert>
 
-	<select id="getQuestion" resultMap="QuestionMap">
+	<select id="getQuestion" resultMap="CarpoolMap">
 		select * from question where id = #{id}
 	</select>
 	<delete id="deleteQuestion">

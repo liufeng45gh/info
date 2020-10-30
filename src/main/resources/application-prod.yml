@@ -1,6 +1,8 @@
 server:
    port: 8080
-   resetCache: true
+   ssl:
+     key-store: classpath:ssl/4698590_www.dbdbd.xyz.jks
+     key-password: tJKyJ6xA
 spring:
   redis:
     host: localhost
