@@ -7,12 +7,18 @@
                         <i class="iconfont ic-settings-basic"></i>
                     </div> <span>基础设置</span>
                     <!----></a></li>
-                <li class="router-link-exact-active active"><a href="/settings/profile">
+                <li class=""><a href="/settings/profile">
                     <div class="setting-icon">
                         <i class="iconfont ic-settings-profile"></i>
                     </div> <span>个人资料</span>
                     <!----></a></li>
-                <li class=""><a href="/settings/blacklist">
+                <li class="router-link-exact-active active"><a href="/settings/profile">
+                    <div class="setting-icon">
+                        <i class="iconfont ic-settings-publish"></i>
+                    </div> <span>我的发布</span>
+                    <!----></a></li>
+                <li class="">
+                    <a href="/settings/blacklist">
                     <div class="setting-icon">
                         <i class="iconfont ic-settings-block"></i>
                     </div> <span>黑名单</span>
@@ -58,7 +64,7 @@
                 <tr id="pass-point">
                     <td class="setting-title">途径地点</td>
                     <td class="weixin-qrcode">
-                        <a class="btn btn-hollow" id="btn-add-pass" onclick="addPass">添加 </a>
+                        <a class="btn btn-hollow" id="btn-add-pass" onclick="addPass()">添加 </a>
                         <p class="pull-right">最多添加三个途径地点</p></td>
                 </tr>
                 <tr>
@@ -77,7 +83,16 @@
                     <td class="setting-title pull-left">补充说明</td>
                     <td>
                         <form>
-                            <textarea placeholder="填写补充说明"></textarea>
+                            <textarea placeholder="填写补充说明" id="comment"></textarea>
+                        </form>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="setting-title pull-left setting-input">剩余座位</td>
+                    <td>
+                        <form>
+                            <input type="text" id="site" class="short-text" placeholder="剩余座位" />
+                            <p class="pull-right">必填</p>
                         </form>
                     </td>
                 </tr>

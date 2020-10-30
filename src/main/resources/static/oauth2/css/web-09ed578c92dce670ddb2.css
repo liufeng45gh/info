@@ -7485,6 +7485,10 @@ button.close {
     content: "\E640"
 }
 
+.ic-settings-publish:before {
+    content: "\E60A"
+}
+
 .ic-settings-money:before {
     content: "\E63A"
 }

@@ -30,6 +30,75 @@ function save(){
         }
     });
 
+    var data_send = {};
+    data_send.from = $("#from-province").val() + "," + $("#from-city").val() + "," + $("#from-district").val();
+    console.log("data_send.from: "+data_send.from)
+    data_send.to = $("#to-province").val() + "," + $("#to-city").val() + "," + $("#to-district").val();
+    console.log("data_send.to: "+data_send.to)
+    var $passArray = $(".information").find(".pass-place");
+    if ($passArray.length >0) {
+        $inputs1= $passArray.eq(0).find("input");
+        console.log("$inputs1.length: "+$inputs1.length)
+        data_send.pass1 = $inputs1.eq(0).val() + "," + $inputs1.eq(1).val() + "," + $inputs1.eq(2).val();
+        console.log("data_send.pass1: "+data_send.pass1)
+    }
+
+    if ($passArray.length >1) {
+        $inputs2= $passArray.eq(1).find("input");
+        console.log("$inputs2.length: "+$inputs2.length)
+        data_send.pass2 = $inputs2.eq(0).val() + "," + $inputs2.eq(1).val() + "," + $inputs2.eq(2).val();
+        console.log("data_send.pass2: "+data_send.pass2)
+    }
+    if ($passArray.length >2) {
+        $inputs3= $passArray.eq(2).find("input");
+        console.log("$inputs3.length: "+$inputs3.length)
+        data_send.pass3 = $inputs3.eq(0).val() + "," + $inputs3.eq(1).val() + "," + $inputs3.eq(2).val();
+        console.log("data_send.pass3: "+data_send.pass3)
+    }
+    data_send.departureTime =  $("#departure-day ").val() + " " + $("#departure-hour").val() + ":" + $("#departure-minute").val();
+    console.log("data_send.departureTime: "+data_send.departureTime)
+
+    data_send.comment =  $("#comment ").val() ;
+    console.log("data_send.comment: "+data_send.comment)
+
+    data_send.site =  $("#site ").val() ;
+    console.log("data_send.site: "+data_send.site)
+    if (isNaN(data_send.site)) {
+        layer.msg("座位必须为数字");
+        return;
+    }
+
+    data_send.linkman =  $("#linkman ").text() ;
+    console.log("data_send.linkman: "+data_send.linkman)
+
+    data_send.phone =  $("#phone ").text() ;
+    console.log("data_send.phone: "+data_send.phone)
+    var reg = /^1[3456789]d{9}$/;
+    if (!reg.test(data_send.phone)) {
+        layer.msg("手机号码不正确");
+        return;
+    }
+
+    var request =$.ajax({
+        type: 'post',
+        url: '/carpool/publish',
+        contentType: 'application/json',
+        data: JSON.stringify(data_send),
+        dataType: 'json',
+    });
+
+    request.fail(function( jqXHR, textStatus ) {
+        layer.msg("系统错误!",{icon: 5});
+    });
+
+    request.done(function(data) {
+        if(data.ok){
+            layer.msg("发布成功!",{icon: 6});
+        }else {
+            layer.msg("系统错误!",{icon: 5});
+        }
+    });
+
 }
 
 function initSelect(){
