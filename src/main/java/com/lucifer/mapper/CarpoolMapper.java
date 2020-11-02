@@ -16,11 +16,13 @@ public interface CarpoolMapper {
 
     Integer insertCarpool(Carpool carpool);
 
-    Question getQuestion(@Param(value = "id") Long id);
+    List<Carpool> listByMemberId(@Param(value = "memberId") Long memberId);
 
-    Integer deleteQuestion(@Param(value = "id") Long id);
+    Carpool getMyCarpool(@Param(value = "id") Long id,@Param(value = "memberId") Long memberId);
 
-    Integer updateQuestion(Question question);
+    Integer deleteMyCarpool(@Param(value = "id") Long id,@Param(value = "memberId") Long memberId);
+
+    Integer updateCarpool(Carpool carpool);
 
     Integer updateQuestionStatus(@Param(value = "id") Long id, @Param(value = "status") Integer status);
 

@@ -50,7 +50,7 @@ public class WebMemberLoginFilter implements Filter {
         }
 
         //需要验证登录的urls 需要跳转到登录页
-        String [] mustLoginPaths = {"/carpool/publish","/carpool/abcd"};
+        String [] mustLoginPaths = {"/carpool/publish","/carpool/my"};
         for (String str : mustLoginPaths) {
             if (spath.endsWith(str)) {
                 log.info("WebMemberLoginFilter.doFilter redirect by {}",str);

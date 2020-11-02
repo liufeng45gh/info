@@ -1,8 +1,5 @@
 server:
    port: 8080
-   ssl:
-     key-store: classpath:ssl/4698590_www.dbdbd.xyz.jks
-     key-password: tJKyJ6xA
 spring:
   redis:
     host: localhost

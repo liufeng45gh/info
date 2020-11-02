@@ -43,27 +43,36 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<insert id="insertCarpool" useGeneratedKeys="true" keyProperty="id">
 		insert into carpool
-		(carpool.from ,carpool.to,pass1,pass2 ,pass3,departure_time,carpool.comment,site,linkman,phone,created_at,updated_at)
+		(member_id,carpool.from ,carpool.to,pass1,pass2 ,pass3,departure_time,carpool.comment,site,linkman,phone,created_at,updated_at)
 		values
-		(#{from} ,#{to},#{pass1},#{pass2} ,#{pass3},#{departureTime} ,#{comment},#{site},#{linkman},#{phone},#{createdAt},#{updatedAt})
+		(#{memberId},#{from} ,#{to},#{pass1},#{pass2} ,#{pass3},#{departureTime} ,#{comment},#{site},#{linkman},#{phone},#{createdAt},#{updatedAt})
 	</insert>
-
-	<select id="getQuestion" resultMap="CarpoolMap">
-		select * from question where id = #{id}
+	<select id="listByMemberId" resultMap="CarpoolMap">
+			select * from carpool where member_id = #{memberId} order by id desc limit 50
 	</select>
-	<delete id="deleteQuestion">
-		delete from question where id = #{id}
+
+	<select id="getMyCarpool" resultMap="CarpoolMap">
+		select * from carpool where id = #{id} and member_id = #{memberId}
+	</select>
+	<delete id="deleteMyCarpool">
+		delete from carpool where id = #{id} and member_id = #{memberId}
 	</delete>
 
-	<update id="updateQuestion">
-		update question
-		set title = #{title},
-		right_answer = #{rightAnswer} ,
-		right_answer_description = #{rightAnswerDescription},
-		is_more_select = #{isMoreSelect},
-		updated_at = now()
+	<update id="updateCarpool">
+		update carpool
+		set carpool.from = #{from},
+		carpool.to = #{to},
+		carpool.pass1 = #{pass1},
+		carpool.pass2 = #{pass2},
+		carpool.pass3 = #{pass3},
+		carpool.departure_time = #{departureTime},
+		carpool.comment = #{comment},
+		carpool.site = #{site},
+		carpool.linkman = #{linkman},
+		carpool.phone = #{phone},
+		carpool.updated_at = #{updatedAt}
 		where id = #{id}
-
+		and member_id = #{memberId}
 	</update>
 
 	<update id="updateQuestionStatus">

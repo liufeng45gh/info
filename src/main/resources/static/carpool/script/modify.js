@@ -31,6 +31,7 @@ function save(){
     });
 
     var data_send = {};
+    data_send.id =  $("#carpool-id").val();
     data_send.from = $("#from-province").val() + "," + $("#from-city").val() + "," + $("#from-district").val();
     console.log("data_send.from: "+data_send.from)
     data_send.to = $("#to-province").val() + "," + $("#to-city").val() + "," + $("#to-district").val();
@@ -81,7 +82,7 @@ function save(){
 
     var request =$.ajax({
         type: 'post',
-        url: '/carpool/publish',
+        url: '/carpool/modify',
         contentType: 'application/json',
         data: JSON.stringify(data_send),
         dataType: 'json',
@@ -93,7 +94,7 @@ function save(){
 
     request.done(function(data) {
         if(data.ok){
-            layer.msg("发布成功!",{icon: 6});
+            layer.msg("修改成功!",{icon: 6});
             setTimeout(function () {
             window.location.href="/carpool/my";
             },1000);
@@ -112,7 +113,9 @@ function initSelect(){
         }
         var value = text;
         $("#departure-hour").append("<option value='"+value+"'>"+text+"</option>");
+
     }
+    $("#departure-hour").val($("#departure-hour").attr("data-value"));
 
     for (var i = 0;i<60 ;i=i+5 ) {
         var text = i;
@@ -121,7 +124,9 @@ function initSelect(){
         }
         var value = text;
         $("#departure-minute").append("<option value='"+value+"'>"+text+"</option>");
+
     }
+    $("#departure-minute").val($("#departure-minute").attr("data-value"));
 
 }
 $(function () {
