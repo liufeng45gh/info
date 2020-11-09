@@ -80,7 +80,7 @@ public class MemberLoginService {
     }
 
     public Member getMemberByToken(String token)  {
-        Long memberId = this.getMemberIdByToken(token);
+        String memberId = this.getMemberIdByToken(token);
         logger.info("memberId is : {}",memberId);
         if (memberId == null) {
             //throw new UnexpectedException(" memberId can not find by token: " + token);
@@ -95,12 +95,13 @@ public class MemberLoginService {
     }
 
     public void updateMemberInfo(String token,Member member) throws UnexpectedException {
-        Long memberId = memberMapper.getMemberIdByToken(token);
+        String memberId = this.getMemberIdByToken(token);
         if (memberId == null) {
             throw new UnexpectedException(" memberId can not find by token: " + token);
         }
-        member.setId(memberId);
+        member.setId(Long.valueOf(memberId));
         memberMapper.updateMemberInfo(member);
+        memberCacheService.removeMemberByIdCache(String.valueOf(memberId));
     }
 
     public Result singUpSendCode(String email) throws Exception {
@@ -174,7 +175,7 @@ public class MemberLoginService {
         return "oauth2:token:"+token;
     }
 
-    public Long getMemberIdByToken(String token){
+    public String getMemberIdByToken(String token){
         String key = this.getTokenKey(token);
         logger.info("key : {}",key);
         String id = stringRedisTemplate.opsForValue().get(key);
@@ -182,7 +183,8 @@ public class MemberLoginService {
         if (StringUtils.isEmpty(id)) {
             return null;
         }
-        return Long.valueOf(id);
+        return id;
+        //return Long.valueOf(id);
     }
 
     public Result emailResetSubmit(RegisterMemberVo memberVo){
@@ -216,6 +218,11 @@ public class MemberLoginService {
            return Result.fail(ResultCode.EMAIL_OR_PASSWORD_WRONG);
        }
         this.generateToken(dbMember.getId(),response);
+        return Result.ok();
+    }
+
+    public Result settingProfile(Member member){
+        memberMapper.updateMemberInfo(member);
         return Result.ok();
     }
 

@@ -1,12 +1,13 @@
 <div class="aside">
     <ul>
-        <li class=""><a href="/settings/basic">
+        <li  id ="my-setting"><a href="/carpool/setting">
             <div class="setting-icon">
                 <i class="iconfont ic-settings-basic"></i>
             </div> <span>基础设置</span>
             </a>
         </li>
-        <li class="router-link-exact-active active"><a href="/carpool/my">
+        <li id ="my-publish">
+            <a href="/carpool/my">
         <div class="setting-icon">
             <i class="iconfont ic-settings-publish"></i>
         </div> <span>我的发布</span>
@@ -38,4 +39,5 @@
             -->
     </ul>
     <!---->
+    <script  type="text/javascript" src="/carpool/script/my-menu.js"></script>
 </div>

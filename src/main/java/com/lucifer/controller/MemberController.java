@@ -36,7 +36,7 @@ public class MemberController {
 
     @RequestMapping(value = "/user-info",method = RequestMethod.POST)
     @ResponseBody
-    public Result updateMemberInfo(@CookieValue(Constant.TOKEN) String token,Member member) throws UnexpectedException {
+    public Result updateMemberInfo(@CookieValue(Constant.MEMBER_ACCESS_TOKEN) String token,Member member) throws UnexpectedException {
         memberLoginService.updateMemberInfo(token,member);
         return   Result.ok();
     }

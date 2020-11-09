@@ -18,7 +18,7 @@ public class Member implements Serializable {
 
     String phone;
 
-    String nickName;
+    String nickname;
 
     String avatar;
 

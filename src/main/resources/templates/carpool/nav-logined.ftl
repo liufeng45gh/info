@@ -17,65 +17,36 @@
         <div class="user " id="user-opt">
 
             <div class="nickname" >
-                    ${Request.MEMBER_LOGIN.nickName}
+                    ${(Request.MEMBER_LOGIN.nickname)!}
             </div>
 
             <ul class="dropdown-menu">
                 <li>
-                    <a href="/">
+                    <a href="/carpool/my">
                         <i class="iconfont ic-icon_mine"></i><span>我的发布</span>
                     </a>
                 </li>
+                <!--
                 <li>
-                    <!-- TODO bookmarks_path -->
                     <a href="/">
                         <i class="iconfont ic-icon_collection"></i><span>我的收藏</span>
                     </a>          </li>
+                    -->
                 <li>
-                    <a href="/">
-                        <i class="iconfont ic-icon_setting"></i><span>设置</span>
+                    <a href="/carpool/setting">
+                        <i class="iconfont ic-icon_setting"></i>
+                        <span>设置</span>
                     </a>
                 </li>
 
                 <li>
-                    <a rel="nofollow" data-method="delete" href="/">
+                    <a rel="nofollow"  href="/oauth2/logout">
                         <i class="iconfont ic-icon_logout"></i><span>退出</span>
                     </a>
                 </li>
             </ul>
         </div>
 
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu" aria-expanded="false">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-            </div>
-            <div class="collapse navbar-collapse" id="menu">
-                <ul class="nav navbar-nav">
-                    <li class="tab active">
-                        <a href="https://www.jianshu.com/">
-                            <span class="menu-text">发现</span><i class="iconfont ic-navigation-discover menu-icon"></i>
-                        </a>            </li>
-
-                    <!--
-                       <li class="tab notification">
-                           <a data-hover="dropdown" href="https://www.jianshu.com/notifications" class="notification-btn"><span class="menu-text">消息</span>
-                               <i class="iconfont ic-navigation-notification menu-icon"></i>
-                            <span class="badge">1</span>
-                        </a>
-
-                    </li>
-                    -->
-                    <li class="search">
-                        <form target="_blank" action="https://www.jianshu.com/search" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="✓">
-                            <input type="text" name="q" id="q" value="" autocomplete="off" placeholder="搜索" class="search-input">
-                            <a class="search-btn" href="javascript:void(null)"><i class="iconfont ic-search"></i></a>
-                        </form>          </li>
-                </ul>
-            </div>
-        </div>
+        <#include "nav-container.ftl"/>
     </div>
 </nav>

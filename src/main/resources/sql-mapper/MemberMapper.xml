@@ -9,7 +9,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result column="email" property="email"/>
 		<result column="password" property="password"/>
 		<result column="phone" property="phone"/>
-		<result column="nick_name" property="nickName"/>
+		<result column="nickname" property="nickname"/>
 		<result column="avatar" property="avatar"/>
 		<result column="salt" property="salt"/>
 		<result column="trueName" property="true_name"/>
@@ -27,9 +27,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	<insert id="insertMember" useGeneratedKeys="true" keyProperty="id">
 		insert into member
-		(email,password,salt,nick_name,created_at,updated_at)
+		(email,password,salt,nickname,created_at,updated_at)
 		values
-		(#{email},#{password},#{salt},#{nickName}, now(), now())
+		(#{email},#{password},#{salt},#{nickname}, now(), now())
 	</insert>
 	<insert id="insertMemberToken">
 		insert into m_access_token
@@ -53,9 +53,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<update id="updateMemberInfo">
 		update member
 		set
-		nickname = #{nickName},
-		department = #{department},
-		company = #{company}
+		nickname = #{nickname},
+		phone = #{phone}
 		where id = #{id}
 	</update>
 

@@ -28,7 +28,7 @@ import java.util.Map;
  */
 @Controller
 @RequestMapping(value = "/oauth2.0")
-public class Oauth2Controller {
+public class CmsOauth2Controller {
 
     final Logger logger = LoggerFactory.getLogger(this.getClass());
 

@@ -63,9 +63,9 @@ $(function (){
             return;
         }
 
-        data_send.nickName = $("#nick_name").val();
+        data_send.nickname = $("#nickname").val();
 
-        if (isEmpty(data_send.nickName)) {
+        if (isEmpty(data_send.nickname)) {
             layer.msg("昵称 不能为空");
             return;
         }

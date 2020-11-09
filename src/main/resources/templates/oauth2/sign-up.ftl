@@ -38,7 +38,7 @@
 
                 <p class="sign-up-msg">若收不到邮件, 请留意下邮件垃圾箱</p>
                 <div class="input-prepend restyle">
-                    <input placeholder="昵称" type="text" id="nick_name" />
+                    <input placeholder="昵称" type="text" id="nickname" />
                     <i class="iconfont ic-user"></i>
                 </div>
 

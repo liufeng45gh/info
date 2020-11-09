@@ -3,18 +3,20 @@ package com.lucifer.controller;
 import com.lucifer.mapper.oauth2.MemberMapper;
 import com.lucifer.model.Member;
 import com.lucifer.service.MemberLoginService;
+import com.lucifer.utils.Constant;
 import com.lucifer.utils.Result;
 import com.lucifer.vo.RegisterMemberVo;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @Controller
 @RequestMapping(value = "/oauth2")
-public class LoginController {
+public class OAuth2MemberController {
 
     @Resource
     MemberLoginService memberLoginService;
@@ -33,6 +35,17 @@ public class LoginController {
         //String totalMemberCount = memberMapper.getSysConfigValue("total_member_count");
         //request.setAttribute("totalMemberCount",totalMemberCount);
         return   "/oauth2/sign-in";
+    }
+
+    @RequestMapping(value = "/logout",method = RequestMethod.GET)
+    public String logout(HttpServletResponse response){
+        //String totalMemberCount = memberMapper.getSysConfigValue("total_member_count");
+        //request.setAttribute("totalMemberCount",totalMemberCount);
+        Cookie cookie = new Cookie(Constant.MEMBER_ACCESS_TOKEN,"");
+        cookie.setPath("/");
+        cookie.setMaxAge(0);
+        response.addCookie(cookie);
+        return   "redirect:/oauth2/sign-in";
     }
 
     @RequestMapping(value = "/sign-in",method = RequestMethod.POST)
@@ -88,6 +101,7 @@ public class LoginController {
         Result result = memberLoginService.loginByTelephonePhone(telephone,password,response);
         return result;
     }
+
 
 
 }

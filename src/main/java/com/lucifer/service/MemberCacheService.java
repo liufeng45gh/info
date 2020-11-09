@@ -18,8 +18,8 @@ public class MemberCacheService {
     private MemberMapper memberMapper;
 
     @Cacheable(cacheNames = SpringCache.carpool.MemberById +"MemberCacheService.getMemberById",key = "#id", unless="#result == null" )
-    public Member getMemberById(Long id){
-        Member member =  memberMapper.getMemberById(id);
+    public Member getMemberById(String id){
+        Member member =  memberMapper.getMemberById(Long.valueOf(id));
         if (null!=member) {
             member.setPassword(null);
         }

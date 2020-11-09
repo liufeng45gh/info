@@ -14,30 +14,6 @@
         <!-- 如果用户登录，显示下拉菜单 -->
 
 
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu" aria-expanded="false">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-            </div>
-            <div class="collapse navbar-collapse" id="menu">
-                <ul class="nav navbar-nav">
-                    <li class="tab active">
-                        <a href="/">
-                            <span class="menu-text">首页</span><i class="iconfont ic-navigation-discover menu-icon"></i>
-                        </a>
-                    </li>
-
-                    <li class="search">
-                        <form target="_blank" action="/search" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="✓">
-                            <input type="text" name="q" id="q" value="" autocomplete="off" placeholder="搜索" class="search-input">
-                            <a class="search-btn" href="javascript:void(null)"><i class="iconfont ic-search"></i></a>
-                        </form>
-                    </li>
-                </ul>
-            </div>
-        </div>
+          <#include "nav-container.ftl"/>
     </div>
 </nav>

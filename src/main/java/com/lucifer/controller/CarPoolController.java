@@ -1,8 +1,11 @@
 package com.lucifer.controller;
 
+import com.lucifer.exception.UnexpectedException;
 import com.lucifer.model.Carpool;
 import com.lucifer.model.Member;
 import com.lucifer.service.CarpoolService;
+import com.lucifer.service.MemberLoginService;
+import com.lucifer.utils.Constant;
 import com.lucifer.utils.RequestUtils;
 import com.lucifer.utils.Result;
 import org.springframework.stereotype.Controller;
@@ -17,6 +20,10 @@ public class CarPoolController {
 
     @Resource
     CarpoolService carpoolService;
+
+    @Resource
+    MemberLoginService memberLoginService;
+
 
     @RequestMapping(value = {"/index","/"},method = RequestMethod.GET)
     public String toLogin(){
@@ -58,5 +65,20 @@ public class CarPoolController {
     public Result modifySubmit(@RequestBody Carpool carpool, HttpServletRequest request){
         return  carpoolService.modifyCarpool(carpool,request);
     }
+
+    @RequestMapping(value = "/setting",method = RequestMethod.GET)
+    public String setting(){
+        //String totalMemberCount = memberMapper.getSysConfigValue("total_member_count");
+        //request.setAttribute("totalMemberCount",totalMemberCount);
+        return   "/carpool/setting";
+    }
+
+    @RequestMapping(value = "/setting",method = RequestMethod.POST)
+    @ResponseBody
+    public Result updateMemberInfo(@CookieValue(Constant.MEMBER_ACCESS_TOKEN) String token, @RequestBody Member member) throws UnexpectedException {
+        memberLoginService.updateMemberInfo(token,member);
+        return   Result.ok();
+    }
+
 
 }
