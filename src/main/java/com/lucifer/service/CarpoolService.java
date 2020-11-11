@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -23,12 +24,16 @@ public class CarpoolService {
     @Resource
     CarpoolMapper carpoolMapper;
 
-    public Result saveCarpool(Carpool carpool,HttpServletRequest request){
+    @Resource
+    CarpoolLuceneService carpoolLuceneService;
+
+    public Result saveCarpool(Carpool carpool,HttpServletRequest request) throws IOException {
         Member member = RequestUtils.getMemberLogin(request);
         carpool.setCreatedAt(new Date());
         carpool.setUpdatedAt(new Date());
         carpool.setMemberId(member.getId());
         carpoolMapper.insertCarpool(carpool);
+        carpoolLuceneService.putOne(carpool);
         return Result.ok();
     }
 
@@ -43,8 +48,13 @@ public class CarpoolService {
         return carpoolMapper.listByMemberId(memberId);
     }
 
-    public Integer deleteMyCarpool(Long id,Long memberId){
-        return carpoolMapper.deleteMyCarpool(id,memberId);
+    public Integer deleteMyCarpool(Long id,Long memberId) throws IOException {
+        Integer deleteCount = carpoolMapper.deleteMyCarpool(id,memberId);
+        if (deleteCount>0) {
+            carpoolLuceneService.deleteOne(id);
+        }
+        return deleteCount;
+
     }
 
     public void showModifyCarpool(Long id,HttpServletRequest request){
@@ -86,7 +96,7 @@ public class CarpoolService {
         request.setAttribute("mm",mm);
     }
 
-    public Result modifyCarpool(Carpool carpool,HttpServletRequest request){
+    public Result modifyCarpool(Carpool carpool,HttpServletRequest request) throws IOException {
         log.info("modifyCarpool has been called");
         Member member = RequestUtils.getMemberLogin(request);
         carpool.setMemberId(member.getId());
@@ -94,6 +104,9 @@ public class CarpoolService {
         Integer updateCount = carpoolMapper.updateCarpool(carpool);
         log.info("updateCount {}",updateCount);
         log.info("carpool.departureTime : {}",carpool.getDepartureTime());
+        if (updateCount>0) {
+            carpoolLuceneService.putOne(carpool);
+        }
         return Result.ok();
     }
 }

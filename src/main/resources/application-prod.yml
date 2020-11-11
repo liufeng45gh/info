@@ -50,11 +50,8 @@ qiniu:
 multipart:
   maxFileSize: 10Mb
   maxRequestSize: 30Mb
-solr:
-  url:
-    news: http://test.haifuc.cn:8983/solr/news
-    artist: http://test.haifuc.cn:8983/solr/artist
-    appreciate: http://test.haifuc.cn:8983/solr/appreciate
+lucene:
+  local: /data/lucene/
 sms:
   sendCodeUrl: https://api.netease.im/sms/sendcode.action
   appKey: 80f0cbe03428deb5f520005694aeffdd

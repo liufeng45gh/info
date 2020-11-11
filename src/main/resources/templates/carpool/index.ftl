@@ -17,7 +17,10 @@
 
     <link href="/oauth2/icon/favicon.ico" rel="shortcut icon" type="image/x-icon">
     <script type="text/javascript" charset="UTF-8" src="/oauth2/script/jquery-1.9.1.min.js"></script>
+    <script  type="text/javascript" src="/layer/layer.js"></script>
+    <script  type="text/javascript" src="/web/js/common.js"></script>
     <script  type="text/javascript" src="/carpool/script/nav.js"></script>
+    <script type="text/javascript" src="/My97DatePicker/WdatePicker.js"></script>
 
 
 
@@ -46,7 +49,7 @@
             <!-- Banner -->
             <div class="split-line"></div>
             <#include "index-content.ftl"/>
-            <a data-page="3" href="/" class="load-more">阅读更多</a></div>
+            <div   class="load-more" id="load-more-btn" style="display: none">查看更多</div></div>
             <#include "right.ftl"/>
     </div>
 </div>

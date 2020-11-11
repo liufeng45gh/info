@@ -9416,29 +9416,35 @@ nav .search-input {
     -o-transition-delay: .1s
 }
 
-nav .search-input:focus {
-    transition-delay: 0s;
-    -moz-transition-delay: 0s;
-    -webkit-transition-delay: 0s;
-    -o-transition-delay: 0s;
-    width: 240px;
-    outline: none
+
+nav .search-input-date {
+    padding: 0 40px 0 20px;
+    width: 160px;
+    height: 38px;
+    font-size: 14px;
+    border: 1px solid #eee;
+    border-radius: 40px;
+    background: #eee;
+    transition: width .5s;
+    -moz-transition: width .5s;
+    -webkit-transition: width .5s;
+    -o-transition: width .5s;
+    transition-delay: .1s;
+    -moz-transition-delay: .1s;
+    -webkit-transition-delay: .1s;
+    -o-transition-delay: .1s
 }
 
 nav  .search-input:-webkit-autofill {
     box-shadow: inset 0 0 0 1000px #eee!important
 }
 
-nav  .search-input:focus+.search-btn {
-    background-color: #969696;
-    border-radius: 50%;
-    color: #fff!important
+nav  .search-input-date:-webkit-autofill {
+    box-shadow: inset 0 0 0 1000px #eee!important
 }
 
-nav .search-input:focus~#navbar-search-tips {
-    visibility: visible;
-    opacity: 1
-}
+
+
 
 nav .search-btn {
     right: 5px;
@@ -9929,9 +9935,10 @@ nav .log-in,nav .log-in:hover {
         width: 240px
     }
 
-    nav .search-input:focus {
-        width: 320px
+    nav .search-input-date {
+        width: 240px
     }
+
 }
 
 body.reader-night-mode .avatar-collection img,body.reader-night-mode .avatar img,body.reader-night-mode .collection .aside .description,body.reader-night-mode .collection .aside .follow-list .modal-body li,body.reader-night-mode .collection .aside .list,body.reader-night-mode .collection .aside .serial-story-tips,body.reader-night-mode .collection .aside .share,body.reader-night-mode .collection .main .main-top .modal-body li,body.reader-night-mode .collections-placeholder .wrap,body.reader-night-mode .form-control,body.reader-night-mode .jianxin-placeholder .wrap,body.reader-night-mode .modal-body li,body.reader-night-mode .modal-collections-placeholder .wrap,body.reader-night-mode .modal-footer,body.reader-night-mode .modal-header,body.reader-night-mode .modal-notes-placeholder,body.reader-night-mode .modal-requests-placeholder .wrap,body.reader-night-mode .modal-users-placeholder,body.reader-night-mode .note-bottom .main .include-collection .add-collection,body.reader-night-mode .note-bottom .main .include-collection .item,body.reader-night-mode .note-bottom .recommend-note .note,body.reader-night-mode .note-bottom .seo-recommended-notes .note,body.reader-night-mode .note-list .follow-detail,body.reader-night-mode .note-list .follow-detail .signature,body.reader-night-mode .note-list .have-img .wrap-img img,body.reader-night-mode .note-list blockquote,body.reader-night-mode .note-list li,body.reader-night-mode .note .follow-detail,body.reader-night-mode .note .follow-detail .signature,body.reader-night-mode .note .post .article .show-content .image-package .image-caption,body.reader-night-mode .note .post .article .show-content .video-package .video-placeholder-area,body.reader-night-mode .note .post .article .show-content table td,body.reader-night-mode .note .post .article .show-content table th,body.reader-night-mode .note .post .comment-list .comment,body.reader-night-mode .note .post .comment-list .line-warp,body.reader-night-mode .note .post .comment-list .new-comment .sign-container,body.reader-night-mode .note .post .comment-list .new-comment textarea,body.reader-night-mode .note .post .comment-list .normal-comment-list .open-block,body.reader-night-mode .note .post .comment-list .normal-comment-list .open-block .open-btn,body.reader-night-mode .note .post .comment-list .normal-comment-list .top-title .author-only,body.reader-night-mode .note .post .comment-list .sub-comment,body.reader-night-mode .note .post .comment-list .sub-comment-list,body.reader-night-mode .note .post .comment-list .top-title,body.reader-night-mode .note .post .dividing-line,body.reader-night-mode .note .post .support-author,body.reader-night-mode .notification-list-placeholder .wrap,body.reader-night-mode .notification .main .chat-top,body.reader-night-mode .notification .main .comment-list li,body.reader-night-mode .notification .main .follow-list li,body.reader-night-mode .notification .main .jianxin-list li,body.reader-night-mode .notification .main .like-list li,body.reader-night-mode .notification .main .message-show .message-l div span,body.reader-night-mode .notification .main .message-show .message-r div span,body.reader-night-mode .notification .main .new-comment textarea,body.reader-night-mode .notification .main .other-list li,body.reader-night-mode .notification .main .pay-list li,body.reader-night-mode .notification .main .push-list .all-push,body.reader-night-mode .notification .main .push-list li,body.reader-night-mode .notification .main .push-top,body.reader-night-mode .pagination a,body.reader-night-mode .pay .choose-pay .option,body.reader-night-mode .pay .main-inputs,body.reader-night-mode .pay .main-inputs .amount-group .option,body.reader-night-mode .pay .main-inputs .message,body.reader-night-mode .pay .main-inputs textarea,body.reader-night-mode .person .aside .description,body.reader-night-mode .person .aside .list,body.reader-night-mode .person .aside .new-collection-block,body.reader-night-mode .person .aside .profile-edit textarea,body.reader-night-mode .person .main .main-top .info ul .meta-block,body.reader-night-mode .person .main .user-list li,body.reader-night-mode .requests .modal-body .show-more,body.reader-night-mode .requests .modal-body .title,body.reader-night-mode .search .aside .hot-search,body.reader-night-mode .search .main .top,body.reader-night-mode .search .main .top .relevant:nth-of-type(2),body.reader-night-mode .search .main .user-list li,body.reader-night-mode .sign .more-sign h6:after,body.reader-night-mode .sign .more-sign h6:before,body.reader-night-mode .sign .overseas .overseas-number,body.reader-night-mode .sign .slide-error,body.reader-night-mode .sign form .input-prepend input,body.reader-night-mode .subscription .aside ul,body.reader-night-mode .subscription .main .add-follow-list li,body.reader-night-mode .trigger-menu,body.reader-night-mode .users-placeholder .wrap,body.reader-night-mode nav .navbar-toggle,body.reader-night-mode nav .style-mode .switch-btn,body.reader-night-mode nav .style-mode hr {

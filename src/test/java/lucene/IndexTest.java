@@ -128,6 +128,59 @@ public class IndexTest {
         //isearcher.search(query);
     }
 
+
+    @Test
+    public void searchTest() throws IOException {
+        Directory dir = FSDirectory.open(Paths.get("U:/logs/lucene-test"));
+        DirectoryReader ireader = DirectoryReader.open(dir);
+        IndexSearcher isearcher = new IndexSearcher(ireader);
+
+        //BooleanQuery booleanQuery = new BooleanQuery();
+
+        //TermQuery tq = new TermQuery(new Term("fieldName", "term"));
+        String from = "ss";
+        String to = "aa";
+        Query originalQuery1 = new BooleanQuery.Builder()
+                .add(new TermQuery(new Term("from", from)), BooleanClause.Occur.MUST)
+                .add(new TermQuery(new Term("to", to)), BooleanClause.Occur.MUST)
+                .build();
+
+        Query originalQuery2 = new BooleanQuery.Builder()
+                .add(new TermQuery(new Term("from", from)), BooleanClause.Occur.MUST)
+                .add(new TermQuery(new Term("pass", to)), BooleanClause.Occur.MUST)
+                .build();
+
+        Query originalQuery3 = new BooleanQuery.Builder()
+                .add(new TermQuery(new Term("pass", from)), BooleanClause.Occur.MUST)
+                .add(new TermQuery(new Term("to", to)), BooleanClause.Occur.MUST)
+                .build();
+        Query originalQuery4 = new BooleanQuery.Builder()
+                .add(new TermQuery(new Term("pass", from)), BooleanClause.Occur.MUST)
+                .add(new TermQuery(new Term("pass", to)), BooleanClause.Occur.MUST)
+                .build();
+        Query shouldQuery = new BooleanQuery.Builder()
+                .add(originalQuery1, BooleanClause.Occur.SHOULD)
+                .add(originalQuery2, BooleanClause.Occur.SHOULD)
+                .add(originalQuery3, BooleanClause.Occur.SHOULD)
+                .add(originalQuery4, BooleanClause.Occur.SHOULD)
+                .build();
+
+        Query mustQuery=new BooleanQuery.Builder()
+                .add(shouldQuery, BooleanClause.Occur.MUST)
+                .add(new TermQuery(new Term("departureDate", "2020-11-26")), BooleanClause.Occur.MUST)
+                .build();
+        TopDocs topDocs = isearcher.search(mustQuery, 10);
+        System.out.println("查询到的条数\t"+topDocs.totalHits);
+        ScoreDoc [] hits  = topDocs.scoreDocs;
+        for (int i = 0; i < hits.length; i++) {
+            System.out.println("hits[i].doc： "+hits[i].doc);
+            Document hitDoc = isearcher.doc(hits[i].doc);
+            System.out.println("hitDoc: "+hitDoc.toString());
+            //assertEquals("This is the text to be indexed.", hitDoc.get("fieldname"));
+        }
+        //isearcher.search(query);
+    }
+
     @Test
     public void deleteAll() throws IOException {
         Directory dir = FSDirectory.open(Paths.get("U:/logs/lucene-test"));

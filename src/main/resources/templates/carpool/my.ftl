@@ -24,6 +24,7 @@
     <script  type="text/javascript" src="/layer/layer.js"></script>
     <script  type="text/javascript" src="/web/js/common.js"></script>
     <script  type="text/javascript" src="/carpool/script/nav.js"></script>
+    <script type="text/javascript" src="/My97DatePicker/WdatePicker.js"></script>
     <script  type="text/javascript" src="/carpool/script/my-list.js"></script>
 
 

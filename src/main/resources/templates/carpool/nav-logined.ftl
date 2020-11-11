@@ -8,7 +8,7 @@
         <!-- 右上角 -->
         <!-- 登录显示写文章 -->
         <a class="btn write-btn" target="_blank" href="/carpool/publish">
-            发布
+            新建发布
         </a>
         <!--
         <div class="btn nickname" id="nickname" > 昵称</div>
