@@ -48,7 +48,12 @@
         <div class="col-xs-16 main">
             <!-- Banner -->
             <div class="split-line"></div>
-            <#include "index-content.ftl"/>
+            <div id="list-container">
+                <!-- 文章列表模块 -->
+                    <#include "index-content.ftl"/>
+                <!-- 文章列表模块 -->
+            </div>
+
             <div   class="load-more" id="load-more-btn" style="display: none">查看更多</div></div>
             <#include "right.ftl"/>
     </div>

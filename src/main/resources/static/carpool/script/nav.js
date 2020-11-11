@@ -21,7 +21,7 @@ $(function () {
     });
 
     $("#search-btn").click(function () {
-        if ($("#search-result").length == 0) {
+        if ($("#list-container").length == 0) {
             layer.msg("本页面不支持搜索");
             return;
         }
@@ -42,8 +42,8 @@ $(function () {
         }
         searchParam.offset = 0;
         searchParam.limit = 20;
-        $("#search-result").empty();
-
+        $("#list-container").empty();
+        $("#list-container").append($("#search-result-template").html());
         var request =$.ajax({
             type: 'post',
             url: '/carpool/search',
@@ -100,7 +100,7 @@ $(function () {
 function randerBackResult(data) {
     for (var i = 0; i< data.data.length; i++) {
         var carpool = data.data[i];
-        var template = $("#item-template").html();
+        var template = $("#search-item-template").html();
         //var title = data.data.from
         template = template.replaceAll("--from--",carpool.from);
         template = template.replaceAll("--to--",carpool.to);

@@ -50,7 +50,11 @@
         <div class="col-xs-16 main">
             <!-- Banner -->
             <div class="split-line"></div>
-            <#include "modify-content.ftl"/>
+            <div id="list-container">
+                 <#include "modify-content.ftl"/>
+            </div>
+            <div   class="load-more" id="load-more-btn" style="display: none">查看更多</div></div>
+
 
     </div>
 </div>
