@@ -13,7 +13,7 @@
             <em> · </em>
             <a target="_blank" href="/">帮助中心</a>
             <em> · </em>
-            <a target="_blank" href="/">合作伙伴</a>
+            <a target="_blank" href="http://beian.miit.gov.cn">京ICP备2020041257号</a>
 
         </div>
     </div>
