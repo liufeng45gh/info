@@ -51,7 +51,7 @@ multipart:
   maxFileSize: 10Mb
   maxRequestSize: 30Mb
 lucene:
-  local: /data/lucene/
+  local: /data/lucene/carpool
 sms:
   sendCodeUrl: https://api.netease.im/sms/sendcode.action
   appKey: 80f0cbe03428deb5f520005694aeffdd
