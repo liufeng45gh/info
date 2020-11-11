@@ -4435,7 +4435,7 @@ tbody.collapse.in {
 }
 
 .navbar-nav>li>a {
-    padding-top: 10px;
+    /**padding-top: 10px;**/
     padding-bottom: 10px;
     line-height: 20px
 }
@@ -4475,7 +4475,7 @@ tbody.collapse.in {
     }
 
     .navbar-nav>li>a {
-        padding-top: 15px;
+        /**padding-top: 15px;**/
         padding-bottom: 15px
     }
 }
@@ -9310,11 +9310,12 @@ nav .navbar-toggle:hover {
 }
 
 nav .navbar-nav li {
-    margin-right: 10px
+    margin-right: 10px;
 }
 
 nav .navbar-nav .search {
-    padding-left: 15px
+    padding-left: 15px;
+    padding-top: 9px;
 }
 
 nav .navbar-collapse {
@@ -9397,7 +9398,7 @@ nav form {
     top: 9px
 }
 
-nav form .search-input {
+nav .search-input {
     padding: 0 40px 0 20px;
     width: 160px;
     height: 38px;
@@ -9415,7 +9416,7 @@ nav form .search-input {
     -o-transition-delay: .1s
 }
 
-nav form .search-input:focus {
+nav .search-input:focus {
     transition-delay: 0s;
     -moz-transition-delay: 0s;
     -webkit-transition-delay: 0s;
@@ -9424,24 +9425,22 @@ nav form .search-input:focus {
     outline: none
 }
 
-nav form .search-input:-webkit-autofill {
+nav  .search-input:-webkit-autofill {
     box-shadow: inset 0 0 0 1000px #eee!important
 }
 
-nav form .search-input:focus+.search-btn {
+nav  .search-input:focus+.search-btn {
     background-color: #969696;
     border-radius: 50%;
     color: #fff!important
 }
 
-nav form .search-input:focus~#navbar-search-tips {
+nav .search-input:focus~#navbar-search-tips {
     visibility: visible;
     opacity: 1
 }
 
-nav form .search-btn {
-    position: absolute;
-    top: 4px;
+nav .search-btn {
     right: 5px;
     width: 30px;
     height: 30px!important;
@@ -9451,9 +9450,17 @@ nav form .search-btn {
     text-align: center
 }
 
-nav form .ic-search {
-    margin: 5px -1px 0 0;
+nav .ic-search {
+    margin: 10px -1px 0 0;
     display: block
+}
+
+nav  .search-span {
+    padding: 2px 8px;
+    font-size: 15px;
+    color: #9b9b9b;
+    border: 1px solid #dcdcdc;
+    border-radius: 3px
 }
 
 nav form .dropdown-menu {
@@ -9868,7 +9875,7 @@ nav .log-in,nav .log-in:hover {
         border: none
     }
 
-    nav form .search-input,nav form .search-input:focus {
+    nav .search-input,nav  .search-input:focus {
         width: 100%
     }
 
@@ -9902,7 +9909,7 @@ nav .log-in,nav .log-in:hover {
         margin-right: 5px
     }
 
-    nav form .search-input,nav form .search-input:focus {
+    nav .search-input,nav  .search-input:focus {
         width: 150px
     }
 }
@@ -9918,11 +9925,11 @@ nav .log-in,nav .log-in:hover {
         margin-right: 5px
     }
 
-    nav form .search-input {
+    nav .search-input {
         width: 240px
     }
 
-    nav form .search-input:focus {
+    nav .search-input:focus {
         width: 320px
     }
 }

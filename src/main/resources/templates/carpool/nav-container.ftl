@@ -8,12 +8,12 @@
     </div>
     <div class="collapse navbar-collapse" id="menu">
         <ul class="nav navbar-nav">
+            <!--
             <li class="tab active">
                 <a href="https://www.jianshu.com/">
                     <span class="menu-text">发现</span><i class="iconfont ic-navigation-discover menu-icon"></i>
-                </a>            </li>
-
-            <!--
+                </a>
+            </li>
                <li class="tab notification">
                    <a data-hover="dropdown" href="https://www.jianshu.com/notifications" class="notification-btn"><span class="menu-text">消息</span>
                        <i class="iconfont ic-navigation-notification menu-icon"></i>
@@ -23,17 +23,19 @@
             </li>
             -->
             <li class="search">
-                <form target="_blank" action="https://www.jianshu.com/search" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="✓">
-                    <input type="text" name="q" id="q" value="" autocomplete="off" placeholder="搜索" class="search-input">
-                    <input type="text" name="q" id="q" value="" autocomplete="off" placeholder="搜索" class="search-input">
+                <span><input type="text" name="q" id="q" value="" autocomplete="off" placeholder="起始地点" class="search-input"></span>
+                <span class="search-span">到</span>
+                <span><input type="text" name="q" id="q" value="" autocomplete="off" placeholder="目标地点" class="search-input"></span>
 
-                </form>
+                <span class="search-span">出发时间</span>
+                <span><input type="text" name="q" id="q" value="" autocomplete="off" placeholder="日期" class="search-input"></span>
             </li>
 
+
             <li class="search">
-
-                    <a class="search-btn" href="javascript:void(null)"><i class="iconfont ic-search"></i></a>
-
+                    <div class="search-btn" >
+                        <i class="iconfont ic-search"></i>
+                    </div>
             </li>
         </ul>
     </div>
