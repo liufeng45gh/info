@@ -43,6 +43,7 @@ public class CarpoolLuceneService {
         SmartChineseAnalyzer analyzer=new SmartChineseAnalyzer();
         IndexWriterConfig iwc=new IndexWriterConfig(analyzer);
         writer=new IndexWriter(dir, iwc);
+        writer.commit();
         DirectoryReader ireader = DirectoryReader.open(dir);
         indexSearcher = new IndexSearcher(ireader);
     }
