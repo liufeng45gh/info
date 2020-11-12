@@ -138,8 +138,9 @@ public class IndexTest {
         //BooleanQuery booleanQuery = new BooleanQuery();
 
         //TermQuery tq = new TermQuery(new Term("fieldName", "term"));
-        String from = "ss";
-        String to = "aa";
+        String from = "北京";
+        String to = "通辽";
+        String date = "2020-11-27";
         Query originalQuery1 = new BooleanQuery.Builder()
                 .add(new TermQuery(new Term("from", from)), BooleanClause.Occur.MUST)
                 .add(new TermQuery(new Term("to", to)), BooleanClause.Occur.MUST)
@@ -167,7 +168,7 @@ public class IndexTest {
 
         Query mustQuery=new BooleanQuery.Builder()
                 .add(shouldQuery, BooleanClause.Occur.MUST)
-                .add(new TermQuery(new Term("departureDate", "2020-11-26")), BooleanClause.Occur.MUST)
+                .add(new TermQuery(new Term("departureDate", date)), BooleanClause.Occur.MUST)
                 .build();
         TopDocs topDocs = isearcher.search(mustQuery, 10);
         System.out.println("查询到的条数\t"+topDocs.totalHits);

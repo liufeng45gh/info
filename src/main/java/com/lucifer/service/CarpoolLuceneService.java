@@ -2,6 +2,7 @@ package com.lucifer.service;
 
 import com.lucifer.model.Carpool;
 import com.lucifer.utils.StringHelper;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.lucene.analysis.cn.smart.SmartChineseAnalyzer;
 import org.apache.lucene.document.*;
 import org.apache.lucene.index.DirectoryReader;
@@ -24,6 +25,7 @@ import java.util.Date;
 import java.util.List;
 
 @Component
+@Slf4j
 public class CarpoolLuceneService {
 
     @Value("${lucene.local}")
@@ -95,6 +97,9 @@ public class CarpoolLuceneService {
     }
 
     public List<Carpool> pageSearch(String from,String to,String date,int offset,int limit) throws IOException, ParseException {
+        log.info("from: {}",from);
+        log.info("to: {}",to);
+        log.info("date: {}",date);
         Query originalQuery1 = new BooleanQuery.Builder()
                 .add(new TermQuery(new Term("from", from)), BooleanClause.Occur.MUST)
                 .add(new TermQuery(new Term("to", to)), BooleanClause.Occur.MUST)
@@ -153,6 +158,7 @@ public class CarpoolLuceneService {
         carpool.setPhone(phone);
 
         String departureTimeString = hitDoc.get("departureTime");
+        log.info("departureTime: {}",departureTimeString);
         Date departureTime = mmSimpleDateFormat.parse(departureTimeString);
         carpool.setDepartureTime(departureTime);
 
