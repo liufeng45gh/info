@@ -1,5 +1,5 @@
 server:
-   port: 80
+   port: 443
    ssl:
      key-store: classpath:ssl/4698590_www.dbdbd.xyz.jks
      key-password: tJKyJ6xA
