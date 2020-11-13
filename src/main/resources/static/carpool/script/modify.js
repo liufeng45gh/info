@@ -79,7 +79,7 @@ function save(){
         layer.msg("手机号码不正确");
         return;
     }
-
+    layer.load(2);
     var request =$.ajax({
         type: 'post',
         url: '/carpool/modify',

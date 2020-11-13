@@ -33,7 +33,7 @@ public class CarpoolService {
         carpool.setUpdatedAt(new Date());
         carpool.setMemberId(member.getId());
         carpoolMapper.insertCarpool(carpool);
-        carpoolLuceneService.putOne(carpool);
+        carpoolLuceneService.addOne(carpool);
         return Result.ok();
     }
 
@@ -105,7 +105,7 @@ public class CarpoolService {
         log.info("updateCount {}",updateCount);
         log.info("carpool.departureTime : {}",carpool.getDepartureTime());
         if (updateCount>0) {
-            carpoolLuceneService.putOne(carpool);
+            carpoolLuceneService.updateOne(carpool);
         }
         return Result.ok();
     }

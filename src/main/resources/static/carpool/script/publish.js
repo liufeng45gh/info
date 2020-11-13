@@ -79,6 +79,7 @@ function save(){
         return;
     }
 
+    layer.load(2);
     var request =$.ajax({
         type: 'post',
         url: '/carpool/publish',

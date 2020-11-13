@@ -3,7 +3,9 @@ package com.lucifer.service;
 import com.lucifer.model.Carpool;
 import com.lucifer.utils.StringHelper;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.cn.smart.SmartChineseAnalyzer;
+import org.apache.lucene.analysis.core.StopAnalyzer;
 import org.apache.lucene.document.*;
 import org.apache.lucene.index.DirectoryReader;
 import org.apache.lucene.index.IndexWriter;
@@ -17,6 +19,8 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.Reader;
 import java.nio.file.Paths;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -35,25 +39,51 @@ public class CarpoolLuceneService {
 
     IndexSearcher indexSearcher;
 
+    IndexWriterConfig indexWriterConfig;
+
+    Directory dir;
+
     SimpleDateFormat mmSimpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 
     SimpleDateFormat ddSimpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
     @PostConstruct
     void init() throws IOException {
-        Directory dir = FSDirectory.open(Paths.get(local));
-        SmartChineseAnalyzer analyzer=new SmartChineseAnalyzer();
-        IndexWriterConfig iwc=new IndexWriterConfig(analyzer);
-        writer=new IndexWriter(dir, iwc);
+        Reader stopWordReader = new InputStreamReader(this.getClass().getResourceAsStream("/lucene/stopwords.txt"));
+        this.dir = FSDirectory.open(Paths.get(local));
+        //SmartChineseAnalyzer analyzer=new SmartChineseAnalyzer();
+        Analyzer analyzer = new StopAnalyzer(stopWordReader);
+        this.indexWriterConfig=new IndexWriterConfig(analyzer);
+        writer=new IndexWriter(dir, indexWriterConfig);
         writer.commit();
-        DirectoryReader ireader = DirectoryReader.open(dir);
-        indexSearcher = new IndexSearcher(ireader);
     }
 
-    public void putOne(Carpool carpool) throws IOException {
+    public void addOne(Carpool carpool) throws IOException {
+//        writer.deleteDocuments(new Term("id",String.valueOf(carpool.getId())));
+//        writer.commit();
+
+        Document doc = this.convertToDocument(carpool);
+        //NumericDocValuesField field = new NumericDocValuesField("departureTime",48);
+        //FieldType fieldType = field.fieldType();
+        writer.addDocument(doc);
+        writer.commit();
+
+    }
+
+    public void updateOne(Carpool carpool) throws IOException {
+//        Document doc = this.convertToDocument(carpool);
+//        writer.updateDocument(new Term("id", String.valueOf(carpool.getId())),doc);
+//        writer.commit();
+
         writer.deleteDocuments(new Term("id",String.valueOf(carpool.getId())));
         writer.commit();
 
+        Document doc = this.convertToDocument(carpool);
+        writer.addDocument(doc);
+        writer.commit();
+    }
+
+    private Document convertToDocument(Carpool carpool){
         Document doc=new Document();
         doc.add(new StringField("id", String.valueOf(carpool.getId()), Field.Store.YES));
 
@@ -85,10 +115,8 @@ public class CarpoolLuceneService {
             doc.add(new TextField("pass",middlePass,Field.Store.YES));
         }
 
-        //NumericDocValuesField field = new NumericDocValuesField("departureTime",48);
-        //FieldType fieldType = field.fieldType();
-        writer.addDocument(doc);
-        writer.commit();
+        return doc;
+
     }
 
     public void deleteOne(Long id) throws IOException {
@@ -100,6 +128,7 @@ public class CarpoolLuceneService {
         log.info("from: {}",from);
         log.info("to: {}",to);
         log.info("date: {}",date);
+
         Query originalQuery1 = new BooleanQuery.Builder()
                 .add(new TermQuery(new Term("from", from)), BooleanClause.Occur.MUST)
                 .add(new TermQuery(new Term("to", to)), BooleanClause.Occur.MUST)
@@ -128,19 +157,35 @@ public class CarpoolLuceneService {
                 .add(shouldQuery, BooleanClause.Occur.MUST)
                 .add(new TermQuery(new Term("departureDate", date)), BooleanClause.Occur.MUST)
                 .build();
-        TopDocs topDocs = indexSearcher.search(mustQuery, offset+limit);
-        System.out.println("查询到的条数\t"+topDocs.totalHits);
-        ArrayList list = new ArrayList();
-        ScoreDoc [] hits  = topDocs.scoreDocs;
-        for (int i = offset; i < hits.length; i++) {
-            System.out.println("hits[i].doc： "+hits[i].doc);
-            Document hitDoc = indexSearcher.doc(hits[i].doc);
-            System.out.println("hitDoc: "+hitDoc.toString());
-            //assertEquals("This is the text to be indexed.", hitDoc.get("fieldname"));
-            Carpool carpool = docToCarpool(hitDoc);
-            list.add(carpool);
+        DirectoryReader ireader = null;
+        try {
+            ireader= DirectoryReader.open(dir);
+            indexSearcher = new IndexSearcher(ireader);
+
+            TopDocs topDocs = indexSearcher.search(mustQuery, offset+limit);
+            System.out.println("查询到的条数\t"+topDocs.totalHits);
+            ArrayList list = new ArrayList();
+            ScoreDoc [] hits  = topDocs.scoreDocs;
+            for (int i = offset; i < hits.length; i++) {
+                System.out.println("hits[i].doc： "+hits[i].doc);
+                Document hitDoc = indexSearcher.doc(hits[i].doc);
+                System.out.println("hitDoc: "+hitDoc.toString());
+                //assertEquals("This is the text to be indexed.", hitDoc.get("fieldname"));
+                Carpool carpool = docToCarpool(hitDoc);
+                list.add(carpool);
+            }
+            ireader.close();
+            return list;
+        }catch (ParseException e) {
+            e.printStackTrace();
+            throw e;
+        } catch (IOException e) {
+            e.printStackTrace();
+            throw e;
+        } finally {
+            ireader.close();
         }
-        return list;
+
     }
 
     private Carpool docToCarpool(Document hitDoc) throws ParseException {

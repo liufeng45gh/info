@@ -1,6 +1,14 @@
 package lucene;
 
+
+import org.apache.lucene.analysis.Analyzer;
+import org.apache.lucene.analysis.CharArraySet;
+import org.apache.lucene.analysis.TokenStream;
+import org.apache.lucene.analysis.cn.smart.HMMChineseTokenizer;
 import org.apache.lucene.analysis.cn.smart.SmartChineseAnalyzer;
+import org.apache.lucene.analysis.core.StopAnalyzer;
+import org.apache.lucene.analysis.standard.StandardAnalyzer;
+import org.apache.lucene.analysis.standard.StandardTokenizer;
 import org.apache.lucene.document.*;
 import org.apache.lucene.index.*;
 import org.apache.lucene.search.*;
@@ -9,6 +17,9 @@ import org.apache.lucene.store.FSDirectory;
 import org.junit.Test;
 
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.io.StringReader;
 import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -139,7 +150,7 @@ public class IndexTest {
 
         //TermQuery tq = new TermQuery(new Term("fieldName", "term"));
         String from = "北京";
-        String to = "通辽";
+        String to = "开鲁";
         String date = "2020-11-27";
         Query originalQuery1 = new BooleanQuery.Builder()
                 .add(new TermQuery(new Term("from", from)), BooleanClause.Occur.MUST)
@@ -193,4 +204,57 @@ public class IndexTest {
         writer.deleteAll();
         writer.close();
     }
+
+    @Test
+    public void tokenizeTest() throws Exception {
+
+        HMMChineseTokenizer tokenizer = new HMMChineseTokenizer();
+
+
+
+//        StandardTokenizer tokenizer = new StandardTokenizer();
+
+//        StopWordTokenizer tokenizer = new StopWordTokenizer();
+
+        Reader input = new StringReader("奈曼,内蒙,开鲁");
+//        Reader input = new StringReader("The 2 QUICK Brown-Foxes jumped over the lazy dog's bone.");
+
+        tokenizer.setReader(input);
+
+        tokenizer.reset();
+
+        while (tokenizer.incrementToken()) {
+
+            System.out.println(tokenizer.cloneAttributes());
+
+        }
+
+        tokenizer.end();
+
+
+    }
+
+    @Test
+    public void testAnalyzer() throws Exception {
+//        SmartChineseAnalyzer analyzer=new SmartChineseAnalyzer();
+//        Analyzer analyzer =
+//                new StandardAnalyzer(new StringReader(","));
+
+//        Analyzer analyzer =
+//                new StopWordAnalyzer(new StringReader(","));
+        //QueryAutoStopWordAnalyzer a
+        Reader stopWordReader = new InputStreamReader(this.getClass().getResourceAsStream("/lucene/stopwords.txt"));
+        Analyzer analyzer =
+                new StopAnalyzer(stopWordReader);
+        String str = "内蒙,奈曼,开鲁";
+        TokenStream tokenStream = analyzer.tokenStream("content", new StringReader(str));
+        // 在读取词元流后，需要先重置/重加载一次
+        tokenStream.reset();
+        while(tokenStream.incrementToken()){
+            System.out.println(tokenStream);
+        }
+    }
+
+
+
 }
