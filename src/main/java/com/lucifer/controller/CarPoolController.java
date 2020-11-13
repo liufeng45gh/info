@@ -33,7 +33,9 @@ public class CarPoolController {
 
 
     @RequestMapping(value = {"/index","/"},method = RequestMethod.GET)
-    public String toLogin(){
+    public String index(HttpServletRequest request){
+        List topList = carpoolService.topList(20);
+        request.setAttribute("topList",topList);
         return   "/carpool/index";
     }
     @RequestMapping(value = {"/publish"},method = RequestMethod.GET)

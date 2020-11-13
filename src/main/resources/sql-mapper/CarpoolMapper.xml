@@ -47,8 +47,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		values
 		(#{memberId},#{from} ,#{to},#{pass1},#{pass2} ,#{pass3},#{departureTime} ,#{comment},#{site},#{linkman},#{phone},#{createdAt},#{updatedAt})
 	</insert>
+
 	<select id="listByMemberId" resultMap="CarpoolMap">
 			select * from carpool where member_id = #{memberId} order by id desc limit 50
+	</select>
+
+	<select id="topList" resultMap="CarpoolMap">
+			select * from carpool  order by id desc limit #{limit}
 	</select>
 
 	<select id="getMyCarpool" resultMap="CarpoolMap">

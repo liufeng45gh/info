@@ -52,6 +52,10 @@ public class CarpoolService {
         return carpoolMapper.listByMemberId(memberId);
     }
 
+    public List<Carpool> topList(Integer limit){
+        return carpoolMapper.topList(limit);
+    }
+
     public Integer deleteMyCarpool(Long id,Long memberId) throws IOException {
         Integer deleteCount = carpoolMapper.deleteMyCarpool(id,memberId);
         if (deleteCount>0) {

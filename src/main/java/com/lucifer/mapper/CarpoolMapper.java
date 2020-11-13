@@ -18,6 +18,8 @@ public interface CarpoolMapper {
 
     List<Carpool> listByMemberId(@Param(value = "memberId") Long memberId);
 
+    List<Carpool> topList(@Param(value = "limit") Integer limit);
+
     Carpool getMyCarpool(@Param(value = "id") Long id,@Param(value = "memberId") Long memberId);
 
     Integer deleteMyCarpool(@Param(value = "id") Long id,@Param(value = "memberId") Long memberId);

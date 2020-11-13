@@ -102,6 +102,7 @@ function randerBackResult(data) {
         var carpool = data.data[i];
         var template = $("#search-item-template").html();
         //var title = data.data.from
+        template = template.replaceAll("--id--",carpool.id);
         template = template.replaceAll("--from--",carpool.from);
         template = template.replaceAll("--to--",carpool.to);
         if (null == carpool.pass1) {
