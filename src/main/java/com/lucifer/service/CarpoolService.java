@@ -3,9 +3,13 @@ package com.lucifer.service;
 import com.lucifer.mapper.CarpoolMapper;
 import com.lucifer.model.Carpool;
 import com.lucifer.model.Member;
+import com.lucifer.utils.ObjectMapperFactory;
+import com.lucifer.utils.OkHttpUtil;
 import com.lucifer.utils.RequestUtils;
 import com.lucifer.utils.Result;
+import com.lucifer.vo.PushToBaiduResultVo;
 import lombok.extern.slf4j.Slf4j;
+import okhttp3.*;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Component;
 
@@ -108,5 +112,40 @@ public class CarpoolService {
             carpoolLuceneService.updateOne(carpool);
         }
         return Result.ok();
+    }
+
+    public Result pushToBaidu(Long id) throws IOException {
+        OkHttpClient okHttpClient = OkHttpUtil.normalInstance();
+
+        MediaType mediaType = MediaType.parse("text/plain");
+        String bodyString = "https://www.dbdbd.xyz/carpool/detail/"+id;
+
+        RequestBody requestBody = RequestBody.create(mediaType, bodyString);
+
+        Request request = new Request.Builder()
+                .url("http://data.zz.baidu.com/urls?site=https://www.dbdbd.xyz&token=GvjO2IXhVaR0tnKZ")
+                .addHeader("Content-Type", "text/plain")
+                .post(requestBody).build();
+
+        Response response = null;
+        String resultString = null;
+        int statusCode = 0;
+
+        response = okHttpClient.newCall(request).execute();
+
+
+        statusCode = response.code();
+        log.info("pushToBaidu response code is {}", statusCode);
+
+
+
+        resultString = response.body().string();
+        log.info("pushToBaidu resultString is {} ", resultString);
+
+        PushToBaiduResultVo r = ObjectMapperFactory.getObjectMapper().readValue(resultString, PushToBaiduResultVo.class);
+        if(r.getSuccess() > 0){
+            return Result.ok();
+        }
+        return Result.fail("push_result_unexpected");
     }
 }

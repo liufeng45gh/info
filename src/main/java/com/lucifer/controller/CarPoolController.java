@@ -99,6 +99,11 @@ public class CarPoolController {
         carpoolService.showModifyCarpool(id,request);
         return  "/carpool/detail";
     }
+    @RequestMapping(value = {"/push-baidu/{id}"},method = RequestMethod.POST)
+    @ResponseBody
+    public Result pushToBaidu(@PathVariable Long id) throws IOException {
+        return carpoolService.pushToBaidu(id);
+    }
 
 
 }

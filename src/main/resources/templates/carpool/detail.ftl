@@ -6,8 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
 
-
-    <title>首页--拼车,</title>
+    <meta name="description"  content="拼车网">
+    <meta name="keywords"  content="拼车, ${(entity.from)!}  到 ${(entity.to)!} 途径 ${(entity.pass1)!};${(entity.pass2)!};${(entity.pass3)!}">
+    <title>拼车详情 ${(entity.from)!}  到 ${(entity.to)!} </title>
 
 
     <link rel="stylesheet" media="all" href="/oauth2/css/web-09ed578c92dce670ddb2.css">
