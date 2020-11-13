@@ -10,8 +10,12 @@
                             <p ><span>途经: </span> <span>${item.pass1!}</span>  <span>${item.pass2!}</span>  <span>${item.pass3!}</span></p>
                             <p><span>${item.departureTime!?string("yyyy-MM-dd HH:mm")}</span>&nbsp;
                                 <span>座位: </span><span>${item.site}</span> &nbsp;
+                            </p>
+                            <p>
                                 <span> <a class="btn " onclick="deleteCarpool(${item.id})">删除</a></span>
                                 <span> <a class="btn " href="/carpool/modify/${item.id}">修改</a></span>
+                                <span> <a class="btn " onclick="pushToBaidu(${item.id})">推送到百度</a></span>
+                                <span> <a class="btn " href="/carpool/detail/${item.id}">详情</a></span>
                             </p>
                         </div>
                     </li>

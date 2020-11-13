@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
 
 
-    <title>首页--拼车-搜索</title>
+    <title>首页--拼车,</title>
 
 
     <link rel="stylesheet" media="all" href="/oauth2/css/web-09ed578c92dce670ddb2.css">
@@ -50,14 +50,13 @@
             <div class="split-line"></div>
             <div id="list-container">
                 <!-- 文章列表模块 -->
-                    <#include "index-content.ftl"/>
+                    <#include "detail-content.ftl"/>
                 <!-- 文章列表模块 -->
             </div>
-
-            <div   class="load-more" id="load-more-btn" style="display: none">查看更多</div>
         </div>
         <#include "right.ftl"/>
     </div>
+
 </div>
 <div class="side-tool"><ul><li data-placement="left" data-toggle="tooltip" data-container="body" data-original-title="回到顶部" style="display: none;"><a class="function-button"><i class="iconfont ic-backtop"></i></a></li> <!----> <!----> <!----> <!----> <!----> <!----></ul></div>
 <#include "footer.ftl"/>

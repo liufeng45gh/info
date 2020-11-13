@@ -25,3 +25,27 @@ function deleteCarpool(id) {
         }
     });
 }
+
+function pushToBaidu(id) {
+    var detailUrl = "https://www.dbdbd.xyz/carpool/detail/"+id;
+    var request =$.ajax({
+        type: 'post',
+        url: 'http://data.zz.baidu.com/urls?site=https://www.dbdbd.xyz&token=GvjO2IXhVaR0tnKZ',
+        contentType: 'text/plain',
+        crossDomain: true,
+        data: detailUrl,
+        dataType: 'json',
+    });
+
+    request.fail(function( jqXHR, textStatus ) {
+        layer.msg("系统错误!",{icon: 5});
+    });
+
+    request.done(function(data) {
+        if(data.success==2){
+            layer.msg("收录请求已提交!",{icon: 6});
+        }else {
+            layer.msg("系统错误!",{icon: 5});
+        }
+    });
+}

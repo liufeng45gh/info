@@ -94,5 +94,11 @@ public class CarPoolController {
         return   Result.ok();
     }
 
+    @RequestMapping(value = {"/detail/{id}"},method = RequestMethod.GET)
+    public String detail(@PathVariable Long id,HttpServletRequest request){
+        carpoolService.showModifyCarpool(id,request);
+        return  "/carpool/detail";
+    }
+
 
 }
