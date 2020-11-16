@@ -9399,12 +9399,12 @@ nav form {
 }
 
 nav .search-input {
-    padding: 0 40px 0 20px;
+    padding: 0 10px 0 10px;
     width: 160px;
     height: 38px;
     font-size: 14px;
     border: 1px solid #eee;
-    border-radius: 40px;
+    border-radius: 5px;
     background: #eee;
     transition: width .5s;
     -moz-transition: width .5s;
@@ -9418,8 +9418,8 @@ nav .search-input {
 
 
 nav .search-input-date {
-    padding: 0 40px 0 20px;
-    width: 160px;
+    padding: 0 10px 0 10px;
+    width: 100px;
     height: 38px;
     font-size: 14px;
     border: 1px solid #eee;
@@ -9916,7 +9916,7 @@ nav .log-in,nav .log-in:hover {
     }
 
     nav .search-input,nav  .search-input:focus {
-        width: 150px
+        width: 80px;
     }
 }
 
