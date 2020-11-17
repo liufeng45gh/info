@@ -4629,7 +4629,8 @@ tbody.collapse.in {
 
 .navbar-default {
     background-color: #f8f8f8;
-    border-color: #e7e7e7
+    border-color: #e7e7e7;
+    height: 56px;
 }
 
 .navbar-default .navbar-brand {
@@ -9270,10 +9271,6 @@ body.reader-night-mode .mobile-bind .overseas .dropdown-menu li a::hover {
     color: #ea6f5a!important
 }
 
-nav {
-    height: 56px
-}
-
 nav .width-limit {
     /**
     min-width: 768px
@@ -9492,6 +9489,7 @@ nav  .search-span {
 
 nav .sear-container{
     margin-top: 15px;
+    margin-bottom: 10px;
 }
 
 nav form .dropdown-menu {

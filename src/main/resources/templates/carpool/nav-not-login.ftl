@@ -15,3 +15,7 @@
           <#include "nav-container.ftl"/>
     </div>
 </nav>
+
+<nav>
+    <#include "nav-search-container.ftl"/>
+</nav>
