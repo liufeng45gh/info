@@ -13,17 +13,17 @@
                 <tr>
                     <td class="top-line setting-title setting-verticle"> 起始地 </td>
                     <td class="top-line">
-                        <input type="text" id="from-province" class="place" /> <span>省</span>
-                        <input  type="text" id="from-city" class="place" /> <span>市</span>
-                        <input type="text" id="from-district" class="place"/> <span>区</span>
+                        <span><input type="text" id="from-province" class="place" /></span> <span>省</span>
+                        <span><input  type="text" id="from-city" class="place" /></span> <span>市</span>
+                        <span><input type="text" id="from-district" class="place"/></span> <span>区</span>
                     </td>
                 </tr>
                 <tr>
                     <td class="top-line setting-title setting-verticle"> 目的地 </td>
                     <td class="top-line">
-                        <input type="text" id="to-province" class="place" /> <span>省</span>
-                        <input  type="text" id="to-city" class="place" /> <span>市</span>
-                        <input type="text" id="to-district" class="place"/> <span>区</span>
+                        <span><input type="text" id="to-province" class="place" /> </span><span>省</span>
+                        <span><input  type="text" id="to-city" class="place" /> </span><span>市</span>
+                        <span><input type="text" id="to-district" class="place"/> </span><span>区</span>
                     </td>
                 </tr>
                 <tr id="pass-point">
@@ -89,9 +89,9 @@
                 <tr class="pass-place" >
                     <td class="top-line setting-title setting-verticle"> 途径地点 </td>
                     <td class="top-line">
-                        <input type="text"  class="place" /> <span>省</span>
-                        <input  type="text"  class="place" /> <span>市</span>
-                        <input type="text"  class="place"/> <span>区</span>
+                        <span><input type="text"  class="place" /> </span><span>省</span>
+                        <span><input  type="text"  class="place" /> </span><span>市</span>
+                        <span><input type="text"  class="place"/> </span><span>区</span>
                         <p class="pull-right" style="cursor: pointer;" onclick="removePass(this)" >删除</p>
                     </td>
                 </tr>
