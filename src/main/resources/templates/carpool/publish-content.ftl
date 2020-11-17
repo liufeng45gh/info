@@ -51,9 +51,7 @@
                 <tr>
                     <td class="setting-title pull-left">补充说明</td>
                     <td>
-                        <form>
-                            <textarea placeholder="填写补充说明" id="comment"></textarea>
-                        </form>
+                        <textarea placeholder="填写补充说明" id="comment"></textarea>
                     </td>
                 </tr>
                 <tr>
