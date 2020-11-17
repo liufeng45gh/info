@@ -695,6 +695,15 @@ footer .icp img {
     .index .main{
         padding-top: 10px;
     }
+    .col-xs-offset-1{
+        margin-left: 0px;
+    }
+    .col-xs-7{
+        width:100%;
+    }
+    .col-xs-16{
+        width:100%;
+    }
 }
 
 .recommended-authors {
