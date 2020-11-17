@@ -6671,6 +6671,11 @@ button.close {
     float: left!important
 }
 
+.inline-left{
+    margin-left:10px;
+    display: inline-block;
+}
+
 .hide {
     display: none!important
 }
@@ -9465,9 +9470,9 @@ nav  .search-input-date:-webkit-autofill {
 
 nav .search-btn {
     display: inline-block;
+    margin-left: 40px;
     right: 5px;
-    width: 30px;
-    height: 30px!important;
+    height: 50px!important;
     line-height: normal!important;
     padding: 0!important;
     color: #969696!important;
@@ -9475,8 +9480,7 @@ nav .search-btn {
 }
 
 nav .ic-search {
-    margin: 10px -1px 0 0;
-    display: block
+    font-size: 25px;
 }
 
 nav  .search-span {

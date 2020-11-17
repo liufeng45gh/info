@@ -241,7 +241,6 @@ body.reader-night-mode .setting .main textarea {
 }
 
 .setting .main p {
-    margin: 0;
     padding: 8px 0 0;
     font-size: 12px;
     color: #969696;
@@ -257,7 +256,6 @@ body.reader-night-mode .setting .main textarea {
 }
 
 .setting .main span {
-    margin: 0 20px 0 6px;
     font-size: 15px;
     vertical-align: middle
 }
@@ -311,7 +309,7 @@ body.reader-night-mode .setting .main textarea {
 }
 
 .setting .main .setting-verticle {
-    vertical-align: bottom
+    vertical-align: top;
 }
 
 .setting .main .btn-delete,.setting .main .btn-hollow {
@@ -796,6 +794,9 @@ body.reader-night-mode .setting .main .delete-account-content {
     }
     .col-xs-17 {
         width: 100%;
+    }
+    .main .break-tag{
+        display: block;
     }
 }
 /*# sourceMappingURL=entry-dc1e51fe2b436e18f5ee.css.map*/

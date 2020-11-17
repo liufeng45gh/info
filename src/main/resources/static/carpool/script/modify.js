@@ -10,7 +10,7 @@ function addPass() {
 }
 function removePass(btn){
     console.log("removePass called")
-    $(btn).parent().parent().remove();
+    $(btn).parent().parent().parent().remove();
 }
 function save(){
     var placeArray = $(".information").find(".place");
