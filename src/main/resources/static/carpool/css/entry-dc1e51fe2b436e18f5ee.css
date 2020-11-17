@@ -3,10 +3,9 @@
 }
 
 .setting .aside {
-    position: fixed;
+    position: absolute;
     top: 0;
     bottom: 0;
-    margin: 86px 0 0;
     padding: 0 0 30px;
     width: 220px;
     overflow: auto
@@ -779,16 +778,24 @@ body.reader-night-mode .setting .main .delete-account-content {
 }
 
 @media (max-width:1080px) {
-    .setting .aside {
-        width: 218.75px
-    }
-
     .setting .main .responsive-head {
         width: 125px
     }
 
     .setting .main .responsive-span {
         margin: 0 4px 0 6px
+    }
+}
+
+@media (max-width:700px) {
+    .setting .aside {
+        display: none;
+    }
+    .col-xs-offset-7{
+        margin-left: 0px;
+    }
+    .col-xs-17 {
+        width: 100%;
     }
 }
 /*# sourceMappingURL=entry-dc1e51fe2b436e18f5ee.css.map*/

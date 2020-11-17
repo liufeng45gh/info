@@ -47,7 +47,7 @@
 
 <div class="container index">
     <div class="row">
-        <div class="col-xs-16 main">
+        <div class="main">
             <!-- Banner -->
             <div class="split-line"></div>
             <#include "publish-content.ftl"/>

@@ -47,9 +47,9 @@
 <#include "nav-logined.ftl"/>
 
 
-<div class="container index subscription">
+<div class="container index ">
     <div class="row">
-        <div class="col-xs-16 main">
+        <div class="main">
             <!-- Banner -->
             <div class="split-line"></div>
             <div id="list-container">

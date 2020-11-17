@@ -810,6 +810,11 @@ dd {
     .dl-horizontal dd {
         margin-left: 180px
     }
+    nav .width-limit {
+        min-width: 768px;
+        max-width: 1440px;
+        margin: 0 auto
+    }
 }
 
 abbr[data-original-title],abbr[title] {
@@ -974,7 +979,8 @@ pre code {
 
 .row {
     margin-left: -15px;
-    margin-right: -15px
+    margin-right: -15px;
+    position: relative;
 }
 
 .row:after,.row:before {
@@ -4300,12 +4306,7 @@ tbody.collapse.in {
         box-shadow: none
     }
 
-    .navbar-collapse.collapse {
-        display: block!important;
-        height: auto!important;
-        padding-bottom: 0;
-        overflow: visible!important
-    }
+
 
     .navbar-collapse.in {
         overflow-y: visible
@@ -4424,6 +4425,11 @@ tbody.collapse.in {
     margin-top: 4px
 }
 
+.navbar-nav {
+    float: left;
+    margin: 0
+}
+
 @media (min-width:768px) {
     .navbar-toggle {
         display: none
@@ -4464,11 +4470,9 @@ tbody.collapse.in {
     }
 }
 
+
 @media (min-width:768px) {
-    .navbar-nav {
-        float: left;
-        margin: 0
-    }
+
 
     .navbar-nav>li {
         float: left
@@ -9271,9 +9275,18 @@ nav {
 }
 
 nav .width-limit {
-    min-width: 768px;
+    /**
+    min-width: 768px
     max-width: 1440px;
-    margin: 0 auto
+    */
+    margin: 0 auto;
+    position: relative;
+}
+
+nav .nav-right{
+    position: absolute;
+    top: 0px;
+    right: 50px;
 }
 
 nav .ic-write {
@@ -9320,6 +9333,13 @@ nav .navbar-nav .search {
 
 nav .navbar-collapse {
     margin-left: -15px!important
+}
+
+.navbar-collapse.collapse {
+    display: block!important;
+    height: auto!important;
+    padding-bottom: 0;
+    overflow: visible!important
 }
 
 nav .nav-default {
@@ -9423,7 +9443,7 @@ nav .search-input-date {
     height: 38px;
     font-size: 14px;
     border: 1px solid #eee;
-    border-radius: 40px;
+    border-radius: 5px;
     background: #eee;
     transition: width .5s;
     -moz-transition: width .5s;
@@ -9447,6 +9467,7 @@ nav  .search-input-date:-webkit-autofill {
 
 
 nav .search-btn {
+    display: inline-block;
     right: 5px;
     width: 30px;
     height: 30px!important;
@@ -9467,6 +9488,10 @@ nav  .search-span {
     color: #9b9b9b;
     border: 1px solid #dcdcdc;
     border-radius: 3px
+}
+
+nav .sear-container{
+    margin-top: 15px;
 }
 
 nav form .dropdown-menu {
@@ -9882,7 +9907,7 @@ nav .log-in,nav .log-in:hover {
     }
 
     nav .search-input,nav  .search-input:focus {
-        width: 100%
+        width: 80px;
     }
 
     nav ul.nav.navbar-nav {
@@ -9904,12 +9929,15 @@ nav .log-in,nav .log-in:hover {
     nav .notification .dropdown-menu {
         display: none
     }
+    nav .position-tag{
+        display: block;
+    }
+    nav .nav-right{
+        right: 5px;
+    }
 }
 
 @media (min-width:768px) and (max-width:1080px) {
-    nav .menu-text {
-        display: none
-    }
 
     nav .navbar-nav li {
         margin-right: 5px
