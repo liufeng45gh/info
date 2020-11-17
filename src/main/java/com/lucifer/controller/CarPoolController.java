@@ -98,7 +98,7 @@ public class CarPoolController {
 
     @RequestMapping(value = {"/detail/{id}"},method = RequestMethod.GET)
     public String detail(@PathVariable Long id,HttpServletRequest request){
-        carpoolService.showModifyCarpool(id,request);
+        carpoolService.showDetailCarpool(id,request);
         return  "/carpool/detail";
     }
     @RequestMapping(value = {"/push-baidu/{id}"},method = RequestMethod.POST)

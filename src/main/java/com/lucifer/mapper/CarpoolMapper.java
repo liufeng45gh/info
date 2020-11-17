@@ -22,6 +22,8 @@ public interface CarpoolMapper {
 
     Carpool getMyCarpool(@Param(value = "id") Long id,@Param(value = "memberId") Long memberId);
 
+    Carpool getCarpool(@Param(value = "id") Long id);
+
     Integer deleteMyCarpool(@Param(value = "id") Long id,@Param(value = "memberId") Long memberId);
 
     Integer updateCarpool(Carpool carpool);

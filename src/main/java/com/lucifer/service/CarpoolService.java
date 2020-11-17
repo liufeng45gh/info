@@ -104,6 +104,44 @@ public class CarpoolService {
         request.setAttribute("mm",mm);
     }
 
+    public void showDetailCarpool(Long id,HttpServletRequest request){
+        Carpool entity = carpoolMapper.getCarpool(id);
+        request.setAttribute("entity",entity);
+        String [] fromArray = entity.getFrom().split(",");
+        request.setAttribute("fromArray",fromArray);
+        String [] toArray = entity.getTo().split(",");
+        request.setAttribute("toArray",toArray);
+
+        List passBodyArray = new ArrayList();
+        if (!StringUtils.isEmpty(entity.getPass1())) {
+            String [] passArray = entity.getPass1().split(",");
+            passBodyArray.add(passArray);
+        }
+
+        if (!StringUtils.isEmpty(entity.getPass2())) {
+            String [] passArray = entity.getPass2().split(",");
+            passBodyArray.add(passArray);
+        }
+
+        if (!StringUtils.isEmpty(entity.getPass3())) {
+            String [] passArray = entity.getPass3().split(",");
+            passBodyArray.add(passArray);
+        }
+
+        request.setAttribute("passBodyArray",passBodyArray);
+        SimpleDateFormat dayFormat  = new SimpleDateFormat("yyyy-MM-dd");
+        String day = dayFormat.format(entity.getDepartureTime());
+        request.setAttribute("day",day);
+
+        SimpleDateFormat hhFormat  = new SimpleDateFormat("HH");
+        String hh = hhFormat.format(entity.getDepartureTime());
+        request.setAttribute("hh",hh);
+
+        SimpleDateFormat mmFormat  = new SimpleDateFormat("mm");
+        String mm = mmFormat.format(entity.getDepartureTime());
+        request.setAttribute("mm",mm);
+    }
+
     public Result modifyCarpool(Carpool carpool,HttpServletRequest request) throws IOException {
         log.info("modifyCarpool has been called");
         Member member = RequestUtils.getMemberLogin(request);

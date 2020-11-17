@@ -59,6 +59,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="getMyCarpool" resultMap="CarpoolMap">
 		select * from carpool where id = #{id} and member_id = #{memberId}
 	</select>
+    <select id="getCarpool" resultMap="CarpoolMap">
+		select * from carpool where id = #{id}
+	</select>
 	<delete id="deleteMyCarpool">
 		delete from carpool where id = #{id} and member_id = #{memberId}
 	</delete>
