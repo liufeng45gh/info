@@ -349,6 +349,18 @@ nav .log-in,nav .log-in:hover {
     margin-left: 4.16667%
 }
 
+.col-xs-offset-7 {
+    margin-left: 29.16667%;
+}
+
+.col-xs-offset-7 {
+    margin-left: 29.16667%;
+}
+
+.col-xs-17 {
+    width: 70.83333%;
+}
+
 .navbar {
     position: relative;
     min-height: 50px;
@@ -528,4 +540,121 @@ nav .log-in,nav .log-in:hover {
 
 .side-tool>ul>li:last-child {
     border-bottom: 1px solid #dcdcdc
+}
+
+nav .nickname {
+    position: relative;
+    /**margin: 8px 12px 0;**/
+    margin: 8px 24px 8px 16px;
+    padding-top: 6px;
+    float: right;
+    /**margin: 11px 6px 0 10px;**/
+    font-size: 15px;
+}
+
+nav  .nickname:before {
+    content: "";
+    position: absolute;
+    top: 18px;
+    right: -14px;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 6px solid #999
+}
+
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    float: left;
+    min-width: 160px;
+    padding: 5px 0;
+    margin: 2px 0 0;
+    list-style: none;
+    font-size: 14px;
+    text-align: left;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: 4px;
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    background-clip: padding-box;
+    margin-top: 0;
+    border-color: transparent;
+    box-shadow: 0 2px 8px rgba(0,0,0,.1);
+    filter: drop-shadow(0 2px 8px rgba(0,0,0,.1));
+    -webkit-filter: drop-shadow(0 2px 8px rgba(0,0,0,.1));
+}
+
+nav .user {
+    float: right;
+    height: 100%
+}
+
+nav .user:hover {
+    background-color: #f5f5f5
+}
+.open>.dropdown-menu {
+    display: block
+}
+
+
+nav .user .dropdown-menu {
+    left: auto;
+    border-radius: 0 0 4px 4px
+}
+
+nav .user .dropdown-menu a {
+    padding: 10px 20px;
+    line-height: 30px;
+    display: block;
+    clear: both;
+    font-weight: 400;
+    color: #333;
+    white-space: nowrap
+}
+
+nav .user .dropdown-menu a:hover {
+    text-decoration: none;
+    color: #262626;
+    background-color: #f5f5f5;
+}
+
+
+nav .user .dropdown-menu i {
+    margin-right: 15px;
+    font-size: 18px;
+    color: #ea6f5a;
+    vertical-align: middle
+}
+
+nav .user .dropdown-menu span {
+    vertical-align: middle
+}
+
+
+li {
+    line-height: 20px;
+}
+
+.btn-success {
+    border-radius: 40px;
+    color: #fff;
+    background-color: #42c02e;
+    border-color: #42c02e;
+}
+
+btn-success.focus, .btn-success:focus, .btn-success:hover {
+    color: 0;
+    background-color: #3db922;
+    border-color: #3db922;
+}
+
+success:hover, .open>.btn-success.dropdown-toggle {
+    color: #fff;
+    background-color: #349724;
+    border-color: #318f22;
 }

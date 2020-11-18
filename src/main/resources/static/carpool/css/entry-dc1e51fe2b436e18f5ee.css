@@ -32,6 +32,7 @@
     list-style: none
 }
 
+
 body.reader-night-mode .setting .aside ul a {
     color: #c8c8c8
 }
@@ -43,7 +44,8 @@ body.reader-night-mode .setting .aside ul a:hover {
 .setting .aside a {
     padding: 10px 15px;
     font-size: 15px;
-    display: block
+    display: block;
+    color: #333;;
 }
 
 .setting .aside li.active a,.setting .aside li:hover a {
