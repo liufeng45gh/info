@@ -10,10 +10,12 @@
     <title>首页--拼车-搜索</title>
 
 
+    <!--
     <link rel="stylesheet" media="all" href="/oauth2/css/web-09ed578c92dce670ddb2.css">
-
-    <link rel="stylesheet" media="all" href="/carpool/css/entry-d6c0cd47a055b4f3ef28.css">
+    -->
+    <link rel="stylesheet" media="all" href="/oauth2/css/common.css">
     <link rel="stylesheet" media="all" href="/carpool/css/index.css">
+    <link rel="stylesheet" media="all" href="/carpool/css/entry-d6c0cd47a055b4f3ef28.css">
 
     <link href="/oauth2/icon/favicon.ico" rel="shortcut icon" type="image/x-icon">
     <script type="text/javascript" charset="UTF-8" src="/oauth2/script/jquery-1.9.1.min.js"></script>

@@ -10,8 +10,13 @@
     <!-- Start of Baidu Transcode -->
     <meta name="description"  content="信息网">
     <title>Oauth2.0-授权登录</title>
+    <link rel="stylesheet" media="all" href="/oauth2/css/common.css" />
+    <link rel="stylesheet" media="all" href="/oauth2/css/sign-in.css" />
+    <!--
     <link rel="stylesheet" media="all" href="/oauth2/css/web-09ed578c92dce670ddb2.css" />
+    -->
     <link rel="stylesheet" media="all" href="/oauth2/css/entry-f3121f603b4ede1d27bc.css" />
+
     <script type="text/javascript" charset="UTF-8" src="/oauth2/script/jquery-1.9.1.min.js"></script>
     <script  type="text/javascript" src="/layer/layer.js"></script>
     <script  type="text/javascript" src="/web/js/common.js"></script>
@@ -38,7 +43,7 @@
 
                 <!-- 正常登录登录名输入框 -->
                 <div class="input-prepend restyle js-normal">
-                    <input placeholder="邮箱" type="text"  id="email" />
+                    <input placeholder="邮箱" type="text"  id="email" style="margin-top: 10px;"/>
                     <i class="iconfont ic-email"></i>
                 </div>
 

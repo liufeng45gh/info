@@ -9,9 +9,8 @@
     <!-- Apple -->
     <meta name="apple-mobile-web-app-title" content="重置密码">
     <title>Oauth2.0-用邮箱重置密码 </title>
-    <link rel="stylesheet" media="all" href="/oauth2/css/web-09ed578c92dce670ddb2.css" />
-
-    <link rel="stylesheet" media="all" href="/oauth2/css/entry-f3121f603b4ede1d27bc.css" />
+    <link rel="stylesheet" media="all" href="/oauth2/css/common.css" />
+    <link rel="stylesheet" media="all" href="/oauth2/css/sign-in.css" />
 
     <script type="text/javascript" charset="UTF-8" src="/oauth2/script/jquery-1.9.1.min.js"></script>
     <script  type="text/javascript" src="/layer/layer.js"></script>
@@ -52,7 +51,7 @@
                 <i class="iconfont ic-password"></i>
             </div>
             <input type="button"  value="重置密码" class="sign-in-button" data-disable-with="重置密码" id="reset-btn" />
-        </form><a class="return" href="/oauth2/sign_in"><i class="iconfont ic-back"></i> 返回登录注册</a>
+        </form><a class="return" href="/oauth2/sign-in"><i class="iconfont ic-back"></i> 返回登录注册</a>
 
     </div>
 </div>

@@ -8,8 +8,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
     <meta name="description"  content="注册">
     <title>Oauth2.0-注册 </title>
+    <link rel="stylesheet" media="all" href="/oauth2/css/common.css" />
+    <link rel="stylesheet" media="all" href="/oauth2/css/sign-in.css" />
+    <!--
     <link rel="stylesheet" media="all" href="/oauth2/css/web-09ed578c92dce670ddb2.css" />
+
     <link rel="stylesheet" media="all" href="/oauth2/css/entry-f3121f603b4ede1d27bc.css" />
+    -->
     <link href="/oauth2/icon/favicon.ico" rel="shortcut icon" type="image/x-icon">
 
     <script type="text/javascript" charset="UTF-8" src="/oauth2/script/jquery-1.9.1.min.js"></script>
