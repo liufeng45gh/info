@@ -11,26 +11,18 @@
                 </thead>
                 <tbody class="information">
 
-
-
-
-
                 <tr>
-                    <td class="setting-title pull-left setting-input">昵称</td>
-                    <td>
-                        <form>
+                    <td class="top-line setting-title">昵称</td>
+                    <td  class="top-line">
                             <input type="text" id="nickname" class="short-text" value="${(Request.MEMBER_LOGIN.nickname)!}" placeholder="昵称" />
                             <p class="pull-right">必填</p>
-                        </form>
                     </td>
                 </tr>
                 <tr>
-                    <td class="setting-title pull-left setting-input">联系电话</td>
+                    <td class="top-line setting-title">联系电话</td>
                     <td>
-                        <form>
                             <input type="text" id="phone" class="short-text" placeholder="联系电话" />
                             <p class="pull-right">必填</p>
-                        </form>
                     </td>
                 </tr>
 
