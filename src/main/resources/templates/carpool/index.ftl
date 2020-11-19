@@ -45,7 +45,7 @@
 <#else>
     <#include "nav-not-login.ftl"/>
 </#if>
-
+ <#include "search-container.ftl"/>
 <div class="container index">
     <div class="row">
         <div class="col-xs-16 main">
