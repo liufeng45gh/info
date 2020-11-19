@@ -103,24 +103,24 @@ function randerBackResult(data) {
         var template = $("#search-item-template").html();
         //var title = data.data.from
         console.log(template);
-        template = template.replaceAll("--id--",carpool.id);
-        template = template.replaceAll("--from--",carpool.from);
-        template = template.replaceAll("--to--",carpool.to);
+        template = template.replace("--id--",carpool.id);
+        template = template.replace("--from--",carpool.from);
+        template = template.replace("--to--",carpool.to);
         if (null == carpool.pass1) {
             carpool.pass1 = "";
         }
-        template = template.replaceAll("--pass1--",carpool.pass1);
+        template = template.replace("--pass1--",carpool.pass1);
         if (null == carpool.pass2) {
             carpool.pass2 = "";
         }
-        template = template.replaceAll("--pass2--",carpool.pass2);
+        template = template.replace("--pass2--",carpool.pass2);
         if (null == carpool.pass3) {
             carpool.pass3 = "";
         }
-        template = template.replaceAll("--pass3--",carpool.pass3);
-        template = template.replaceAll("--departureTime--",carpool.departureTime);
-        template = template.replaceAll("--linkman--",carpool.linkman);
-        template = template.replaceAll("--site--",carpool.site);
+        template = template.replace("--pass3--",carpool.pass3);
+        template = template.replace("--departureTime--",carpool.departureTime);
+        template = template.replace("--linkman--",carpool.linkman);
+        template = template.replace("--site--",carpool.site);
         $("#search-result").append(template);
     }
     if (data.data.length>0) {
