@@ -5,9 +5,9 @@
 
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+    <meta name="description"  content="拼车网,长途拼车,免费发布拼车信息">
 
-
-    <title>首页--拼车-搜索</title>
+    <title>首页-拼车网</title>
 
 
     <!--
