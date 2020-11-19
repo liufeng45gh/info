@@ -658,3 +658,45 @@ success:hover, .open>.btn-success.dropdown-toggle {
     background-color: #349724;
     border-color: #318f22;
 }
+
+.btn-delete,.btn-gray,.btn-hollow {
+    padding: 4px 12px;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: normal;
+    border-radius: 40px;
+    background: none
+}
+
+.btn-hollow {
+    border: 1px solid rgba(59,194,29,.7);
+    color: #42c02e!important
+}
+
+.btn-hollow:focus,.btn-hollow:hover {
+    border: 1px solid #42c02e;
+    color: #42c02e!important;
+    background-color: rgba(59,194,29,.05)
+}
+
+.btn-delete {
+    border: 1px solid rgba(236,97,73,.7);
+    color: #ea6f5a!important
+}
+
+.btn-delete:focus,.btn-delete:hover {
+    border: 1px solid #ea6f5a;
+    color: #ea6f5a!important;
+    background-color: rgba(236,97,73,.05)
+}
+
+.btn-gray {
+    border: 1px solid hsla(0,0%,59%,.7);
+    color: #969696!important
+}
+
+.btn-gray:focus,.btn-gray:hover {
+    border: 1px solid #969696;
+    color: #969696!important;
+    background-color: hsla(0,0%,59%,.05)
+}
