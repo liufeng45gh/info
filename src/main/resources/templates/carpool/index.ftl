@@ -62,7 +62,7 @@
         <#include "right.ftl"/>
     </div>
 </div>
-<div class="side-tool"><ul><li data-placement="left" data-toggle="tooltip" data-container="body" data-original-title="回到顶部" style="display: none;"><a class="function-button"><i class="iconfont ic-backtop"></i></a></li> <!----> <!----> <!----> <!----> <!----> <!----></ul></div>
 <#include "footer.ftl"/>
-
-<!----></html>
+</body>
+<!---->
+</html>

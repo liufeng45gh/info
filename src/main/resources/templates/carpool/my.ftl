@@ -50,19 +50,11 @@
 <#include "nav-logined.ftl"/>
 
 
-<div class="container index ">
-    <div class="row">
-        <div class="main">
-            <!-- Banner -->
-            <div class="split-line"></div>
-            <div id="list-container">
-                <#include "my-content.ftl"/>
-            </div>
-            <div   class="load-more" id="load-more-btn" style="display: none">查看更多</div></div>
 
-    </div>
-</div>
+<#include "my-content.ftl"/>
 
 
 
-<!----></html>
+</body>
+<!---->
+</html>

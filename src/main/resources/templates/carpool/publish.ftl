@@ -49,16 +49,11 @@
 <#include "nav-logined.ftl"/>
 
 
-<div class="container index">
-    <div class="row">
-        <div class="main">
-            <!-- Banner -->
-            <div class="split-line"></div>
-            <#include "publish-content.ftl"/>
 
-    </div>
-</div>
+<#include "publish-content.ftl"/>
+
+</body>
 
 
-
-<!----></html>
+<!---->
+</html>

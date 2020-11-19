@@ -46,7 +46,7 @@
                     </tr>
                 </#list>
                 <tr id="pass-point">
-                    <td class="setting-title">途径地点</td>
+                    <td class="top-line setting-title setting-verticle">途径地点</td>
                     <td class="weixin-qrcode">
                         <a class="btn btn-hollow" id="btn-add-pass" onclick="addPass()">添加 </a>
                         <p class="inline-left">最多添加三个途径地点</p></td>
@@ -64,36 +64,30 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="setting-title pull-left">补充说明</td>
-                    <td>
+                    <td class="top-line setting-title setting-verticle">补充说明</td>
+                    <td class="top-line">
                         <textarea placeholder="填写补充说明" id="comment">${entity.comment}</textarea>
                     </td>
                 </tr>
                 <tr>
-                    <td class="setting-title pull-left setting-input">剩余座位</td>
-                    <td>
-                        <form>
+                    <td class="top-line setting-title setting-verticle">剩余座位</td>
+                    <td class="top-line">
                             <input type="text" id="site" class="short-text" placeholder="剩余座位" value="${entity.site}"/>
                             <p class="inline-left">必填</p>
-                        </form>
                     </td>
                 </tr>
                 <tr>
-                    <td class="setting-title pull-left setting-input">联系人</td>
-                    <td>
-                        <form>
+                    <td class="top-line setting-title setting-verticle">联系人</td>
+                    <td class="top-line">
                             <input type="text" id="linkman" class="short-text" placeholder="联系人" value="${entity.linkman}"/>
                             <p class="inline-left">必填</p>
-                        </form>
                     </td>
                 </tr>
                 <tr>
-                    <td class="setting-title pull-left setting-input">联系电话</td>
-                    <td>
-                        <form>
-                            <input type="text" id="phone" class="short-text" placeholder="联系电话" value="${entity.phone}" />
-                            <p class="inline-left">必填</p>
-                        </form>
+                    <td class="top-line setting-title setting-verticle">联系电话</td>
+                    <td class="top-line">
+                        <input type="text" id="phone" class="short-text" placeholder="联系电话" value="${entity.phone}" />
+                        <p class="inline-left">必填</p>
                     </td>
                 </tr>
 

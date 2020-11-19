@@ -9,14 +9,16 @@
 
     <title>设置</title>
 
+    <link rel="stylesheet" media="all" href="/oauth2/css/common.css">
+    <link rel="stylesheet" media="all" href="/carpool/css/index.css">
+    <link rel="stylesheet" media="all" href="/carpool/css/iconfont.css">
 
-    <link rel="stylesheet" media="all" href="/oauth2/css/web-09ed578c92dce670ddb2.css">
 
     <!--
     <link rel="stylesheet" media="all" href="/carpool/css/entry-d6c0cd47a055b4f3ef28.css">
+     <link rel="stylesheet" media="all" href="/oauth2/css/web-09ed578c92dce670ddb2.css">
 -->
     <link rel="stylesheet" media="all" href="/carpool/css/entry-dc1e51fe2b436e18f5ee.css">
-    <link rel="stylesheet" media="all" href="/carpool/css/index.css">
 
     <link href="/oauth2/icon/favicon.ico" rel="shortcut icon" type="image/x-icon">
     <script type="text/javascript" charset="UTF-8" src="/oauth2/script/jquery-1.9.1.min.js"></script>
@@ -41,16 +43,10 @@
 <#include "nav-logined.ftl"/>
 
 
-<div class="container index">
-    <div class="row">
-        <div class="main">
-            <!-- Banner -->
-            <div class="split-line"></div>
-            <#include "setting-content.ftl"/>
-            <input type="hidden" id="my-menu-active" value="my-setting">
-    </div>
-</div>
 
+<#include "setting-content.ftl"/>
+<input type="hidden" id="my-menu-active" value="my-setting">
 
+</body>
 
 <!----></html>

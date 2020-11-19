@@ -49,36 +49,30 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="setting-title pull-left">补充说明</td>
-                    <td>
+                    <td class="top-line setting-title setting-verticle">补充说明</td>
+                    <td class="top-line">
                         <textarea placeholder="填写补充说明" id="comment"></textarea>
                     </td>
                 </tr>
                 <tr>
-                    <td class="setting-title pull-left setting-input">剩余座位</td>
-                    <td>
-                        <form>
+                    <td class="top-line setting-title setting-verticle">剩余座位</td>
+                    <td class="top-line">
                             <input type="text" id="site" class="short-text" placeholder="剩余座位" />
                             <p class="inline-left">必填</p>
-                        </form>
                     </td>
                 </tr>
                 <tr>
-                    <td class="setting-title pull-left setting-input">联系人</td>
-                    <td>
-                        <form>
+                    <td class="top-line setting-title setting-verticle">联系人</td>
+                    <td class="top-line">
                             <input type="text" id="linkman" class="short-text" placeholder="联系人" />
                             <p class="inline-left">必填</p>
-                        </form>
                     </td>
                 </tr>
                 <tr>
-                    <td class="setting-title pull-left setting-input">联系电话</td>
-                    <td>
-                        <form>
+                    <td class="top-line setting-title setting-verticle">联系电话</td>
+                    <td class="top-line">
                             <input type="text" id="phone" class="short-text" placeholder="联系电话" />
                             <p class="inline-left">必填</p>
-                        </form>
                     </td>
                 </tr>
 
