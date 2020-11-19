@@ -11,7 +11,7 @@
     <template id="search-item-template" style="display: none;">
         <li >
             <div class="content">
-                <a class="title" target="_blank" href="/carpool/detail/--id--"><span>--from--</span><span>到</span><span>--to--</span></a>
+                <a class="title" target="_blank" href="/carpool/detail/--id--"><span>--from--</span><span>&nbsp;到&nbsp;</span><span>--to--</span></a>
                 <p class="abstract">
                     <span>途径 :</span> <span>--pass1--</span> <span>;</span> <span>--pass2--</span> <span>;</span> <span>--pass3--</span>
                 </p>
