@@ -12,14 +12,14 @@
                 <tbody class="information">
 
                 <tr>
-                    <td class="top-line setting-title">昵称</td>
+                    <td class="top-line setting-title setting-verticle">昵称</td>
                     <td  class="top-line">
                             <input type="text" id="nickname" class="short-text" value="${(Request.MEMBER_LOGIN.nickname)!}" placeholder="昵称" />
                             <p class="pull-right">必填</p>
                     </td>
                 </tr>
                 <tr>
-                    <td class="top-line setting-title">联系电话</td>
+                    <td class="top-line setting-title setting-verticle">联系电话</td>
                     <td>
                             <input type="text" id="phone" class="short-text" placeholder="联系电话" />
                             <p class="pull-right">必填</p>
