@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0024)https://www.jianshu.com/ -->
-<html><!--<![endif]-->
+<html>
 <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
@@ -13,11 +12,6 @@
     <link rel="stylesheet" media="all" href="/carpool/css/index.css">
     <link rel="stylesheet" media="all" href="/carpool/css/iconfont.css">
 
-
-    <!--
-    <link rel="stylesheet" media="all" href="/carpool/css/entry-d6c0cd47a055b4f3ef28.css">
-     <link rel="stylesheet" media="all" href="/oauth2/css/web-09ed578c92dce670ddb2.css">
--->
     <link rel="stylesheet" media="all" href="/carpool/css/entry-dc1e51fe2b436e18f5ee.css">
 
     <link href="/oauth2/icon/favicon.ico" rel="shortcut icon" type="image/x-icon">
@@ -29,24 +23,11 @@
     <script  type="text/javascript" src="/carpool/script/setting.js"></script>
 </head>
 
-<!-- 只给10%的用户添加代码 -->
-<!-- ###第四范式-智能推荐：代码直接复制 无需修改参数### -->
-<!-- ###功能：上报内容并反馈用户行为### -->
-<!--
--->
 <body lang="zh-CN" class="reader-black-font">
 
-<#--
-<#include "nav-not-login.ftl"/>
- -->
-
 <#include "nav-logined.ftl"/>
-
-
-
 <#include "setting-content.ftl"/>
 <input type="hidden" id="my-menu-active" value="my-setting">
 
 </body>
-
-<!----></html>
+</html>

@@ -1,5 +1,4 @@
 <ul class="note-list" infinite-scroll-url="/" id="search-result">
-
     <#list topList as item>
      <li >
          <div class="content">
@@ -19,6 +18,4 @@
          </div>
      </li>
     </#list>
-    <!---->
-
 </ul>

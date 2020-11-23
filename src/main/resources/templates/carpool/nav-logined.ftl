@@ -3,15 +3,11 @@
 
     <div class="width-limit">
         <!-- 右上角 -->
-        <!-- 登录显示写文章 -->
+
         <div class="nav-right">
             <a class="btn write-btn" target="_blank" href="/carpool/publish">
                 新建发布
             </a>
-            <!--
-            <div class="btn nickname" id="nickname" > 昵称</div>
-            -->
-            <!-- 如果用户登录，显示下拉菜单 -->
             <div class="user " id="user-opt">
 
                 <div class="nickname" >
@@ -24,12 +20,6 @@
                             <i class="iconfont ic-icon_mine"></i><span>我的发布</span>
                         </a>
                     </li>
-                    <!--
-                    <li>
-                        <a href="/">
-                            <i class="iconfont ic-icon_collection"></i><span>我的收藏</span>
-                        </a>          </li>
-                        -->
                     <li>
                         <a href="/carpool/setting">
                             <i class="iconfont ic-icon_setting"></i>

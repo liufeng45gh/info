@@ -38,6 +38,5 @@
             </a></li>
             -->
     </ul>
-    <!---->
     <script  type="text/javascript" src="/carpool/script/my-menu.js"></script>
 </div>

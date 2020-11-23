@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<!-- saved from url=(0024)https://www.jianshu.com/ -->
-<html><!--<![endif]-->
+
+<html>
 <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
@@ -13,10 +13,6 @@
     <link rel="stylesheet" media="all" href="/oauth2/css/common.css">
     <link rel="stylesheet" media="all" href="/carpool/css/index.css">
     <link rel="stylesheet" media="all" href="/carpool/css/iconfont.css">
-    <!--
-    <link rel="stylesheet" media="all" href="/oauth2/css/web-09ed578c92dce670ddb2.css">
-    -->
-
     <link rel="stylesheet" media="all" href="/carpool/css/entry-d6c0cd47a055b4f3ef28.css">
 
 
@@ -26,22 +22,10 @@
     <script  type="text/javascript" src="/web/js/common.js"></script>
     <script  type="text/javascript" src="/carpool/script/nav.js"></script>
     <script type="text/javascript" src="/My97DatePicker/WdatePicker.js"></script>
-
-
-
-
 </head>
 
-<!-- 只给10%的用户添加代码 -->
-<!-- ###第四范式-智能推荐：代码直接复制 无需修改参数### -->
-<!-- ###功能：上报内容并反馈用户行为### -->
-<!--
--->
 <body lang="zh-CN" class="reader-black-font">
 
-<#--
-<#include "nav-not-login.ftl"/>
- -->
 <#if Request.MEMBER_LOGIN?exists>
     <#include "nav-logined.ftl"/>
 <#else>
@@ -51,19 +35,15 @@
 <div class="container index">
     <div class="row">
         <div class="col-xs-16 main">
-            <!-- Banner -->
             <div class="split-line"></div>
             <div id="list-container">
-                <!-- 文章列表模块 -->
                     <#include "detail-content.ftl"/>
-                <!-- 文章列表模块 -->
             </div>
         </div>
         <#include "right.ftl"/>
     </div>
 
 </div>
-<div class="side-tool"><ul><li data-placement="left" data-toggle="tooltip" data-container="body" data-original-title="回到顶部" style="display: none;"><a class="function-button"><i class="iconfont ic-backtop"></i></a></li> <!----> <!----> <!----> <!----> <!----> <!----></ul></div>
 <#include "footer.ftl"/>
 
-<!----></html>
+</html>
