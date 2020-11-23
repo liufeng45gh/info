@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
     <meta name="description"  content="拼车网,长途拼车,免费发布拼车信息">
 
-    <title>首页-拼车网</title>
+    <title>首页-拼车网,这里可以免费发布和查询拼车信息，我试过都能用</title>
     <link rel="stylesheet" media="all" href="/oauth2/css/common.css">
     <link rel="stylesheet" media="all" href="/carpool/css/index.css">
     <link rel="stylesheet" media="all" href="/carpool/css/iconfont.css">
