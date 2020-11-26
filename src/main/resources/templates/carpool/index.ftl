@@ -4,9 +4,9 @@
 
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
-    <meta name="description"  content="拼车网,长途拼车,免费发布拼车信息">
+    <meta name="description"  content="拼车网,长途拼车,免费发布拼车信息,车找人|顺风车|拼车网|私家车长途拼车|一起顺风车">
 
-    <title>首页-拼车网,这里可以免费发布和查询拼车信息，我试过都能用</title>
+    <title>首页-拼车网|车找人|顺风车|拼车网|私家车长途拼车|一起顺风车</title>
     <link rel="stylesheet" media="all" href="/oauth2/css/common.css">
     <link rel="stylesheet" media="all" href="/carpool/css/index.css">
     <link rel="stylesheet" media="all" href="/carpool/css/iconfont.css">
